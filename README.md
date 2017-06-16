@@ -5,8 +5,3 @@ tenden|see allows users to manage and track daily tasks like any other habit tra
 DEMO: https://s3.us-east-2.amazonaws.com/tgoc99habit/appvideo.gif
 
 (Google Play and Apple App Store submissions pending)
-## Team
-
-  - __Product Owner__: Guedis Cardenas, Thomas O'Connor
-  - __Scrum Master__: Duncan Pederse
-  - __Development Team Members__: Debasish Mozumder
