@@ -25,7 +25,7 @@ class AppRouter extends Component {
         barButtonIconStyle={styles.barButtonIconStyle}
       >
         <Scene key="root">
-          {/* <Scene
+          <Scene
             key="landing"
             component={Landing}
             hideNavBar={true}
@@ -33,13 +33,7 @@ class AppRouter extends Component {
             passProps={true}
             initial={true}
           />
-          <Scene
-            key="auth"
-            component={Auth}
-            hideNavBar={true}
-            title="Signup"
-            passProps={true}
-          /> */}
+          <Scene key="auth" component={Auth} hideNavBar={true} title="Signup" passProps={true} />
           <Scene
             key="camera"
             component={Camera}
@@ -104,8 +98,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(ActionCreators, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(ActionCreators, dispatch);
 
 const mapStateToProps = (state, ownProps) => {
   return {

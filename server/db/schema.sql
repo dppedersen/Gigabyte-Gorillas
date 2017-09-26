@@ -1,5 +1,5 @@
 
-USE habitdb;
+USE ganymede_greenfield_2;
 
 
 -- ---
