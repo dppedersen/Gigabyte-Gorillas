@@ -48,19 +48,28 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
 			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+			<key>172.16.31.78</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Take Pictures!</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Save Photos!</string>
 	<key>UIAppFonts</key>
@@ -101,6 +110,7 @@
 		<string>SF-UI-Text-Regular.otf</string>
 		<string>Skia.ttf</string>
 		<string>Times New Roman.ttf</string>
+		<string>Feather.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

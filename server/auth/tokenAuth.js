@@ -43,7 +43,7 @@ exports.register = (req, res) => {
       res.status(403).json('That username is already taken. Please try another.');
     } else {
       let newUser = {
-        username, 
+        username,
         password: bcrypt.hashSync(password, null),
         email: req.body.email
       };

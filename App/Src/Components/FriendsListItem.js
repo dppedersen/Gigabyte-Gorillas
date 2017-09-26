@@ -1,14 +1,20 @@
-import React, { Component } from 'react'
-import { Text, View, StyleSheet, Image, TouchableHighlight } from 'react-native';
-import { Card, CheckBox, Button, Icon } from 'native-base';
-import colors from './../ColorPalette';
+import React, { Component } from "react";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  TouchableHighlight
+} from "react-native";
+import { Card, CheckBox, Button, Icon } from "native-base";
+import colors from "./../ColorPalette";
 
 class Friend extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isFriendChecked: false
-    }
+    };
   }
 
   _toggleFriendChecked = () => {
@@ -20,56 +26,73 @@ class Friend extends Component {
     } else {
       this.props.removeFriendFromList(this.props.user.id);
     }
-  }
+  };
 
   _deleteFriend = () => {
     this.props.deleteFriend(this.props.user.id);
-  }
+  };
 
   _changeVisibleUser = () => {
     this.props.closeModal();
     this.props.changeVisibleUser(this.props.user.id);
-  }
+  };
 
   render() {
     return (
       <View style={styles.friendCard}>
         <View style={styles.photo}>
-          <TouchableHighlight style={styles.touchableOpacity} underlayColor={colors.primary} onPress={() => {this._changeVisibleUser()}}>
-            <Image style={styles.image}
+          <TouchableHighlight
+            style={styles.touchableOpacity}
+            underlayColor={colors.primary}
+            onPress={() => {
+              this._changeVisibleUser();
+            }}
+          >
+            <Image
+              style={styles.image}
               source={
-                this.props.user.photo === 'NO_PHOTO' ?
-                  {uri: 'https://cdn3.iconfinder.com/data/icons/back-to-the-future/512/marty-mcfly-512.png'}
-                 :
-                  {uri: this.props.user.photo}
+                this.props.user.photo === "NO_PHOTO"
+                  ? {
+                      uri:
+                        "https://cdn3.iconfinder.com/data/icons/back-to-the-future/512/marty-mcfly-512.png"
+                    }
+                  : { uri: this.props.user.photo }
               }
             />
           </TouchableHighlight>
         </View>
         <View style={styles.userInfo}>
           <View style={styles.usernameContainer}>
-            <Text style={styles.username}>{this.props.user.username}</Text>
+            <Text style={styles.username}>
+              {this.props.user.username}
+            </Text>
           </View>
           <View>
             <Text style={styles.quote}>
-              {this.props.user.tagline === 'NO_TAGLINE' ? (
-                `I'm not very inventive!`
-              ) : (
-                this.props.user.tagline
-              )}
+              {this.props.user.tagline === "NO_TAGLINE"
+                ? `I'm not very inventive!`
+                : this.props.user.tagline}
             </Text>
           </View>
         </View>
         <View style={styles.friendCheckbox}>
-          {this.props.isModalVisible ?
-            <CheckBox style={{color: colors.primaryDark}} checked={this.state.isFriendChecked} onPress={() => {this._toggleFriendChecked()}} />
-           :
-            this.props.isSelf ? (
-              <Icon style={{flex: 1, fontSize: 30, color: colors.primary}} name="close" onPress={() => {this._deleteFriend()}}/>
-            ) : (
-              null
-            )
-          }
+          {this.props.isModalVisible
+            ? <CheckBox
+                style={{ color: colors.primaryDark }}
+                checked={this.state.isFriendChecked}
+                onPress={() => {
+                  this._toggleFriendChecked();
+                }}
+              />
+            : this.props.isSelf
+              ? <Icon
+                  style={{ flex: 1, fontSize: 30, color: colors.primary }}
+                  name="close"
+                  onPress={() => {
+                    this._deleteFriend();
+                  }}
+                />
+              : null}
         </View>
       </View>
     );
@@ -84,18 +107,18 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     margin: 5,
     marginBottom: 0,
-    flexDirection: 'row',
-    borderColor: '#d1d1e0',
+    flexDirection: "row",
+    borderColor: "#d1d1e0",
     borderWidth: 1,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     padding: 20,
     paddingLeft: 10,
-    paddingRight: 10,
+    paddingRight: 10
   },
   photo: {
     flex: 1,
-    margin: 'auto',
-    alignSelf: 'center',
+    margin: "auto",
+    alignSelf: "center",
     paddingRight: 10
   },
   touchableOpacity: {
@@ -106,30 +129,30 @@ const styles = StyleSheet.create({
     flex: 1,
     width: null,
     height: null,
-    resizeMode: 'contain'
+    resizeMode: "contain"
   },
   userInfo: {
     flex: 5,
-    flexDirection: 'column',
+    flexDirection: "column"
   },
   usernameContainer: {
     paddingBottom: 2
   },
   username: {
     color: colors.secondaryText,
-    fontWeight: 'bold',
-    fontSize: 16,
+    fontWeight: "bold",
+    fontSize: 16
   },
   quote: {
     color: colors.secondaryText,
-    fontStyle: 'italic',
+    fontStyle: "italic",
     fontSize: 8
   },
   friendCheckbox: {
-    justifyContent: 'center',
+    justifyContent: "center",
     flex: 1,
-    alignItems: 'center',
-  },
+    alignItems: "center"
+  }
 });
 
 export default Friend;
