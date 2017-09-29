@@ -8,14 +8,14 @@ const AuthView = ({
   username,
   password,
   email,
+  route,
   userLoginAction,
   toggleRoute,
   facebookLoginAction,
-  updateText,
-  authDisabledAlert,
+  updateTextAction,
+  disabledLoginAlert,
   authEnabled,
-  switchScreenText,
-  route
+  switchScreenText
 }) =>
   <View style={styles.container}>
     <Image style={styles.appLogo} source={require("./../Assets/liftoff_bauhaus_transp.png")} />
@@ -26,7 +26,7 @@ const AuthView = ({
           autoCapitalize="none"
           value={username}
           autoCorrect={false}
-          onChangeText={text => updateText(text, "username")}
+          onChangeText={text => updateTextAction(text, "username")}
         />
       </Item>
       <Item
@@ -39,7 +39,7 @@ const AuthView = ({
           keyboardType="email-address"
           value={email}
           autoCorrect={false}
-          onChangeText={text => updateText(text, "email")}
+          onChangeText={text => updateTextAction(text, "email")}
         />
       </Item>
       <Item regular style={StyleSheet.flatten(styles.formInput)}>
@@ -49,14 +49,14 @@ const AuthView = ({
           placeholder="Password"
           value={password}
           autoCorrect={false}
-          onChangeText={text => updateText(text, "password")}
+          onChangeText={text => updateTextAction(text, "password")}
         />
       </Item>
     </Form>
     <Button
       block
       style={authEnabled ? StyleSheet.flatten(styles.authButtonEnabled) : StyleSheet.flatten(styles.authButtonDisabled)}
-      onPress={authEnabled ? () => userLogin() : () => disabledLoginAlert()}
+      onPress={authEnabled ? () => userLoginAction() : () => disabledLoginAlert()}
     >
       <Text
         style={
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   authButtonEnabled: {
     marginTop: 10,
     marginBottom: 10,
-    backgroundColor: "green"
+    backgroundColor: colors.primaryLight
   },
   authButtonDisabled: {
     marginTop: 10,

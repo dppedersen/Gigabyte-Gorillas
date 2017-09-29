@@ -48,21 +48,21 @@ class Auth extends Component {
         username={this.state.username}
         password={this.state.password}
         email={this.state.email}
-        disabledButtonAlert={this.disabledButton.bind(this)}
-        userLoginFunction={this.userLogin.bind(this)}
+        disabledLoginAlert={this.disabledButton.bind(this)}
+        userLoginAction={this.userLogin.bind(this)}
         toggleRoute={this.toggleRoute.bind(this)}
         facebookLogin={this.facebookLogin.bind(this)}
-        updateText={this.updateText.bind(this)}
+        updateTextAction={this.updateText.bind(this)}
         route={this.state.route}
         switchScreenText={this.state.switchScreenText}
-        authEnabled={this.state.username.length > 3 && this.state.password.length > 6}
+        authEnabled={this.state.username.length > 0 && this.state.password.length > 0}
       />
     );
   }
 }
-
+const mapStateToProps = () => ({});
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ auth, facebookLogin }, dispatch);
 };
 
-export default connect(mapDispatchToProps)(Auth);
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
