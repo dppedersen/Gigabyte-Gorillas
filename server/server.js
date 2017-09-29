@@ -10,23 +10,21 @@ const MySQLStore = require("express-mysql-session")(session);
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
-const config = process.env.SECRET
-  ? { secret: process.env.SECRET }
-  : require("./config");
+const config = process.env.SECRET ? { secret: process.env.SECRET } : require("./config");
 const db = require("./db/db-config.js");
 const sessionStore = new MySQLStore({}, db);
 
 const app = express();
 
 //AUTHENTICATION MIDDLEWARE
-// app.use(
-//   session({
-//     secret: config.secret,
-//     resave: true, // need this?
-//     saveUninitialized: false, // need this?
-//     store: sessionStore
-//   })
-// );
+app.use(
+  session({
+    secret: config.secret,
+    resave: true, // need this?
+    saveUninitialized: false, // need this?
+    store: sessionStore
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
