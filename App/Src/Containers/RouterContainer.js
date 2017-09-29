@@ -4,13 +4,11 @@ import { Actions, Router, Scene, ActionConst } from "react-native-router-flux";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ActionCreators } from "../Actions/ActionCreators";
-import Camera from "./Camera";
-import Habits from "./Habits";
-import IndividualHabit from "./IndividualHabit";
-import Auth from "./Auth";
-import Setting from "./Setting";
-import Landing from "./Landing";
-import Images from "./Images";
+import Camera from "./CameraContainer";
+import Auth from "./AuthContainer";
+import Setting from "./SettingsContainer";
+import Landing from "./LandingContainer";
+import Images from "./ProfileContainer";
 import { Icon } from "native-base";
 
 const ReduxRouter = connect()(Router);
@@ -43,13 +41,6 @@ class AppRouter extends Component {
             passProps={true}
           />
           <Scene
-            key="habits"
-            component={Habits}
-            hideNavBar={true}
-            title="Your Habits!"
-            passProps={true}
-          />
-          <Scene
             key="images"
             component={Images}
             title="Images Page"
@@ -63,19 +54,6 @@ class AppRouter extends Component {
             title="Setting Page"
             hideNavBar={true}
             passProps={true}
-          />
-          <Scene
-            key="individualHabit"
-            component={IndividualHabit}
-            title="Habit Page"
-            hideNavBar={true}
-            passProps={true}
-            rightTitle="Edit"
-            onRight={() => {
-              console.log("clicked header");
-            }}
-            navigationBarStyle={styles.navBar}
-            titleOpacity={0}
           />
         </Scene>
       </ReduxRouter>

@@ -34,35 +34,18 @@ class Landing extends Component {
     } else if (!this.props.routes.scene.sceneKey === "landing") {
       return;
     } else if (this.props.routes.scene.sceneKey === "landing") {
-      this.props.landingTimeout(
-        this.props.user.token,
-        this.props.routes.scene.title
-      );
+      this.props.landingTimeout(this.props.user.token, this.props.routes.scene.title);
     }
   }
 
   render() {
     console.log("landing render isloggedin", this.props.auth.isLoggedIn);
     return (
-      <View
-        style={{
-          flex: 1,
-          alignSelf: "stretch",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#0277bd"
-        }}
-      >
+      <View style={styles.container}>
         <Image
-          style={{
-            height: 50,
-            width: 200,
-            marginBottom: 200,
-            resizeMode: "contain"
-          }}
+          style={styles.logo}
           source={{
-            uri:
-              "https://s3.us-east-2.amazonaws.com/tgoc99habit/tendensee-logo-1000.png"
+            uri: "https://s3.us-east-2.amazonaws.com/tgoc99habit/tendensee-logo-1000.png"
           }}
         />
       </View>
@@ -70,8 +53,23 @@ class Landing extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(ActionCreators, dispatch);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignSelf: "stretch",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#0277bd"
+  },
+  logo: {
+    height: 50,
+    width: 200,
+    marginBottom: 200,
+    resizeMode: "contain"
+  }
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(ActionCreators, dispatch);
 
 const mapStateToProps = (state, ownProps) => {
   return {

@@ -31,13 +31,11 @@ import {
 } from "native-base";
 import Modal from "react-native-modal";
 import { Actions } from "react-native-router-flux";
-import GestureRecognizer, {
-  swipeDirections
-} from "react-native-swipe-gestures";
+import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures";
 import { ActionCreators } from "./../Actions/ActionCreators";
 import Friend from "./../Components/FriendsListItem";
 import UserView from "./../Components/UserView";
-import Camera from "./Camera";
+import Camera from "./CameraContainer";
 import Swiper from "react-native-swiper";
 import colors from "./../ColorPalette";
 
@@ -72,10 +70,7 @@ class Images extends Component {
 
   _closeModal = () => {
     if (this.state.selectedFriends.length > 0) {
-      this.props.addFriendsAndUpdate(
-        this.props.user,
-        this.state.selectedFriends
-      );
+      this.props.addFriendsAndUpdate(this.props.user, this.state.selectedFriends);
       this.props.fetchUser(this.props.user.token);
     }
     this.setState({
@@ -112,10 +107,7 @@ class Images extends Component {
   render() {
     let isSelf = false;
     if (this.props.visibleUser.user) {
-      isSelf =
-        this.props.user.user.id === this.props.visibleUser.user.id
-          ? true
-          : false;
+      isSelf = this.props.user.user.id === this.props.visibleUser.user.id ? true : false;
     }
 
     const config = {
@@ -184,10 +176,7 @@ class Images extends Component {
                   Actions.images();
                 }}
               >
-                <Icon
-                  style={{ fontSize: 50, color: "white", opacity: 1 }}
-                  name="person"
-                />
+                <Icon style={{ fontSize: 50, color: "white", opacity: 1 }} name="person" />
               </Button>
             </View>
             <Button transparent onPress={() => Actions.camera()}>
@@ -258,16 +247,12 @@ class Images extends Component {
                   {this.props.visibleUserFriends
                     ? this.props.allUsers
                         .filter(user => {
-                          return !this.props.visibleUserFriends.includes(
-                            user.id
-                          );
+                          return !this.props.visibleUserFriends.includes(user.id);
                         })
                         .filter(user => {
                           return user.username
                             .toLowerCase()
-                            .includes(
-                              this.state.searchedUsername.toLowerCase()
-                            );
+                            .includes(this.state.searchedUsername.toLowerCase());
                         })
                         .map(user => {
                           return (
@@ -275,12 +260,8 @@ class Images extends Component {
                               key={user.id}
                               isModalVisible={true}
                               user={user}
-                              changeVisibleUser={this._changeVisibleUser.bind(
-                                this
-                              )}
-                              removeFriendFromList={this._removeFriendFromList.bind(
-                                this
-                              )}
+                              changeVisibleUser={this._changeVisibleUser.bind(this)}
+                              removeFriendFromList={this._removeFriendFromList.bind(this)}
                               addFriendToList={this._addFriendToList.bind(this)}
                               closeModal={this._closeModal.bind(this)}
                             />

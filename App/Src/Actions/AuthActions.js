@@ -73,12 +73,8 @@ export const checkAuth = token => {
     }).then(bool => {
       // console.log('bool in checkauth', bool.ok)
       // console.log('checkauth action boolean?', bool.ok);
-      bool.ok
-        ? Actions.camera({ type: ActionConst.RESET })
-        : Actions.auth({ type: ActionConst.RESET });
-      bool.ok
-        ? dispatch(checkAuthSuccess(bool.ok))
-        : dispatch(checkAuthFail(bool.ok));
+      bool.ok ? Actions.camera({ type: ActionConst.RESET }) : Actions.auth({ type: ActionConst.RESET });
+      bool.ok ? dispatch(checkAuthSuccess(bool.ok)) : dispatch(checkAuthFail(bool.ok));
     });
   };
 };
@@ -87,13 +83,13 @@ export const auth = (username, password, email, route) => {
   return dispatch => {
     dispatch(authInit());
 
-    const user = {
+    const authData = {
       username,
       password,
       email
     };
 
-    const path = route === "Login" ? "login" : "register"; // can add to end of path instead of users...
+    const path = route === "Log In" ? "login" : "register"; // can add to end of path instead of users...
     console.log("MY_IP", MY_IP);
 
     return fetch(`http://${MY_IP}:8080/` + path, {
@@ -102,7 +98,7 @@ export const auth = (username, password, email, route) => {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(authData)
     })
       .then(data => {
         return data.json().then(data => {

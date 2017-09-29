@@ -4,19 +4,17 @@ import { bindActionCreators } from "redux";
 import { Alert } from "react-native";
 import { auth } from "../Actions/AuthActions.js";
 import { facebookLogin } from "../Actions/FacebookActions";
-import Login from "../Components/FbLogin.js";
-import LoginView from "../Components/LoginView.js";
-import SignupView from "../Components/SignupView";
+import AuthView from "../Components/AuthView.js";
 
 class Auth extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      route: "SignUp",
+      route: "Sign Up",
       username: "",
       password: "",
-      email: ""
+      email: "",
+      switchScreenText: "Log In Instead"
     };
   }
 
@@ -35,29 +33,31 @@ class Auth extends Component {
   }
 
   toggleRoute() {
-    let alt = this.state.route === "Login" ? "SignUp" : "Login";
-    this.setState({ route: alt, username: "", password: "", email: "" });
+    let altRoute = this.state.route === "Log In" ? "Sign Up" : "Log In";
+    let altSwitchText = this.state.route === "Log In" ? "Log In Instead" : "Sign Up Instead";
+    this.setState({ route: altRoute, username: "", password: "", email: "", switchScreenText: altSwitchText });
   }
 
-  updateText(e) {
-    this.setState({ username: })
-    console.log(e);
+  updateText(value, field) {
+    this.setState({ [field]: value });
   }
 
   render() {
-    return this.state.route === "Login"
-      ? <LoginView
-          disabledButton={() => this.disabledButton()}
-          userLogin={() => this.userLogin()}
-          toggleRoute={() => this.toggleRoute()}
-          facebookLogin={() => this.facebookLogin()}
-        />
-      : <SignupView
-          disabledButton={() => this.disabledButton()}
-          userLogin={() => this.userLogin()}
-          toggleRoute={() => this.toggleRoute()}
-          facebookLogin={() => this.facebookLogin()}
-        />;
+    return (
+      <AuthView
+        username={this.state.username}
+        password={this.state.password}
+        email={this.state.email}
+        disabledButtonAlert={this.disabledButton.bind(this)}
+        userLoginFunction={this.userLogin.bind(this)}
+        toggleRoute={this.toggleRoute.bind(this)}
+        facebookLogin={this.facebookLogin.bind(this)}
+        updateText={this.updateText.bind(this)}
+        route={this.state.route}
+        switchScreenText={this.state.switchScreenText}
+        authEnabled={this.state.username.length > 3 && this.state.password.length > 6}
+      />
+    );
   }
 }
 

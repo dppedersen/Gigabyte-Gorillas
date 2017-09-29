@@ -13,11 +13,8 @@ import { bindActionCreators } from "redux";
 import Camera from "react-native-camera";
 import { ActionCreators } from "./../Actions/ActionCreators";
 import { Button, Icon } from "native-base";
-import GestureRecognizer, {
-  swipeDirections
-} from "react-native-swipe-gestures";
+import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures";
 import { Actions, ActionConst } from "react-native-router-flux";
-import PhotoCalculatingModal from "./../Components/PhotoCalculatingModal";
 import GotPhotoModal from "./../Components/GotPhotoModal";
 import colors from "./../ColorPalette";
 
@@ -109,10 +106,7 @@ class Cam extends Component {
                 Actions.images();
               }}
             >
-              <Icon
-                style={{ fontSize: 40, color: "white", opacity: 1 }}
-                name="person"
-              />
+              <Icon style={{ fontSize: 40, color: "white", opacity: 1 }} name="person" />
             </Button>
             <View
               style={{
@@ -123,10 +117,7 @@ class Cam extends Component {
               }}
             >
               <Button transparent onPress={() => this.takePicture()}>
-                <Icon
-                  style={{ fontSize: 50, color: "white" }}
-                  name="radio-button-on"
-                />
+                <Icon style={{ fontSize: 50, color: "white" }} name="radio-button-on" />
               </Button>
             </View>
             <Button
@@ -145,10 +136,7 @@ class Cam extends Component {
         </View>
 
         <View style={styles.gotPhotoModal}>
-          <GotPhotoModal
-            habitDay={this.state.habitDay}
-            habitProps={this.props.habitProps}
-          />
+          <GotPhotoModal habitDay={this.state.habitDay} habitProps={this.props.habitProps} />
         </View>
       </GestureRecognizer>
     );
@@ -164,11 +152,7 @@ class Cam extends Component {
         let sendData = Object.assign({}, this.props.user, {
           data: data
         });
-        this.props.sendPhoto(
-          sendData,
-          this.state.habitDay,
-          this.props.habitProps
-        );
+        this.props.sendPhoto(sendData, this.state.habitDay, this.props.habitProps);
         // this.setState({ deleteActionRun: false });
         // accelerationObservable = new Accelerometer({
         //   updateInterval: 2000
