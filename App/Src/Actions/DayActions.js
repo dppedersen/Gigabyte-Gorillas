@@ -54,7 +54,7 @@ export const updateDay = (day) => {
       console.log('in update day:', day)
       let putData = Object.assign({}, {data: day});
 
-      return fetch(`http://${MY_IP}:8080/api/dates`, {
+      return fetch(`http://${MY_IP}:3000/api/dates`, {
         method: 'PUT',
         headers: {
           'Accept': 'application/json',
@@ -85,7 +85,7 @@ export const deleteDay = (day) => {
       console.log('in delete day:', day)
       let deleteData = Object.assign({}, {data: day});
 
-      return fetch(`http://${MY_IP}:8080/api/dates`, {
+      return fetch(`http://${MY_IP}:3000/api/dates`, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',

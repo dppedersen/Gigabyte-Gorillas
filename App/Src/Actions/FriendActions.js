@@ -32,7 +32,7 @@ export const addFriendsAndUpdate = (user, friends) => {
   return dispatch => {
     dispatch (addFriends(friends));
     let postData = Object.assign({}, {data: friends});
-    return fetch(`http://${MY_IP}:8080/api/friends`, {
+    return fetch(`http://${MY_IP}:3000/api/friends`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -54,7 +54,7 @@ export const deleteFriendAndUpdate = (user, friend) => {
   return dispatch => {
     dispatch (deleteFriend(friend));
     let postData = Object.assign({}, {data: friend});
-    return fetch(`http://${MY_IP}:8080/api/friends`, {
+    return fetch(`http://${MY_IP}:3000/api/friends`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -102,7 +102,7 @@ export const getVisibleUser = (user, clickedUserId) => {
   }
   return dispatch => {
     dispatch (getVisibleUserInit());
-    return fetch(`http://${MY_IP}:8080/api/users/${clickedUserId}`, {
+    return fetch(`http://${MY_IP}:3000/api/users/${clickedUserId}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',

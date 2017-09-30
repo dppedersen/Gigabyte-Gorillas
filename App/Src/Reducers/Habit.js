@@ -1,40 +1,40 @@
-const habit = (state ={addingHabit: false, updatingHabit:false, deletingHabit:false}, action) => {
+const habit = (state = { addingHabit: false, updatingHabit: false, deletingHabit: false }, action) => {
   switch (action.type) {
-    case ('HABIT_INIT'):
+    case "HABIT_INIT":
       return Object.assign({}, state, {
-        addingHabit: true,
+        addingHabit: true
       });
-    case ('HABIT_SUCCESS'):
+    case "HABIT_SUCCESS":
       return Object.assign({}, state, {
-        addingHabit: false,
+        addingHabit: false
       });
-    case ('HABIT_FAIL'):
+    case "HABIT_FAIL":
       return Object.assign({}, state, {
-        addingHabit: false,
+        addingHabit: false
       });
-    case ('UPDATE_HABIT_INIT'):
+    case "UPDATE_HABIT_INIT":
       return Object.assign({}, state, {
-        updatingHabit: true,
+        updatingHabit: true
       });
-    case ('UPDATE_HABIT_SUCCESS'):
+    case "UPDATE_HABIT_SUCCESS":
       return Object.assign({}, state, {
-        updatingHabit: false,
+        updatingHabit: false
       });
-    case ('UPDATE_HABIT_FAIL'):
+    case "UPDATE_HABIT_FAIL":
       return Object.assign({}, state, {
-        updatingHabit: false,
+        updatingHabit: false
       });
-    case ('DELETE_HABIT_INIT'):
+    case "DELETE_HABIT_INIT":
       return Object.assign({}, state, {
-        deletingHabit: true,
+        deletingHabit: true
       });
-    case ('DELETE_HABIT_SUCCESS'):
+    case "DELETE_HABIT_SUCCESS":
       return Object.assign({}, state, {
-        deletingHabit: false,
+        deletingHabit: false
       });
-    case ('DELETE_HABIT_FAIL'):
+    case "DELETE_HABIT_FAIL":
       return Object.assign({}, state, {
-        deletingHabit: false,
+        deletingHabit: false
       });
     default:
       return state;

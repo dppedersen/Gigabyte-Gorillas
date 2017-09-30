@@ -83,7 +83,7 @@ export const getFacebookFriends = () => {
 }
 
 export const facebookServer = (facebookProfile) => {
-  return fetch(`http://${MY_IP}:8080/facebook`, {
+  return fetch(`http://${MY_IP}:3000/facebook`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

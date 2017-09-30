@@ -42,7 +42,7 @@ export const sendPhoto = (data, day, habit) => {
     console.log('pichabti, data', sendData.picHabit, sendData.data)
 
 
-    return fetch(`http://${MY_IP}:8080/api/dates`, {
+    return fetch(`http://${MY_IP}:3000/api/dates`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

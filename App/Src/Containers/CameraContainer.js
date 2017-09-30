@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  Alert,
-  Text,
-  View,
-  Dimensions,
-  StyleSheet,
-  TouchableHighlight,
-  StatusBar
-} from "react-native";
+import { Alert, Text, View, Dimensions, StyleSheet, TouchableHighlight, StatusBar } from "react-native";
 import { bindActionCreators } from "redux";
 import Camera from "react-native-camera";
 import { ActionCreators } from "./../Actions/ActionCreators";
@@ -21,7 +13,7 @@ import colors from "./../ColorPalette";
 // import { Accelerometer, Gyroscope } from 'react-native-sensors';
 // let accelerationObservable;
 
-class Cam extends Component {
+class CameraContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,23 +25,23 @@ class Cam extends Component {
     console.log("camera constructor");
   }
 
-  componentWillMount() {
-    console.log("helloooo cameraaa", this.props.user);
-    let habits = this.props.habits.map(h => ({
-      id: h.id,
-      name: h.name,
-      notification: h.notification
-    }));
-    console.log(habits);
-  }
+  // componentWillMount() {
+  //   console.log("helloooo cameraaa", this.props.user);
+  //   let habits = this.props.habits.map(h => ({
+  //     id: h.id,
+  //     name: h.name,
+  //     notification: h.notification
+  //   }));
+  //   console.log(habits);
+  // }
 
-  onSwipeLeft() {
-    Actions.habits();
-  }
-
-  onSwipeRight() {
-    Actions.images();
-  }
+  // onSwipeLeft() {
+  //   Actions.habits();
+  // }
+  //
+  // onSwipeRight() {
+  //   Actions.images();
+  // }
 
   // _deleteDateAndCloseModal() {
   //   this.props.deleteDay(this.props.currentPhoto);
@@ -71,12 +63,7 @@ class Cam extends Component {
     //   })
     // }
     console.log("cam all state", this.state);
-    console.log(
-      "cam ernder day, habit",
-      this.state.habitDay,
-      this.state.habitProps,
-      this.takePicture
-    );
+    console.log("cam ernder day, habit", this.state.habitDay, this.state.habitProps, this.takePicture);
     const config = {
       velocityThreshold: 0.3,
       directionalOffsetThreshold: 80
@@ -123,7 +110,7 @@ class Cam extends Component {
             <Button
               transparent
               onPress={() => {
-                Actions.habits();
+                Actions.challenges();
               }}
             >
               <Icon style={{ fontSize: 40, color: "white" }} name="list" />
@@ -131,13 +118,9 @@ class Cam extends Component {
           </View>
         </Camera>
 
-        <View>
-          <PhotoCalculatingModal />
-        </View>
-
-        <View style={styles.gotPhotoModal}>
+        {/* <View style={styles.gotPhotoModal}>
           <GotPhotoModal habitDay={this.state.habitDay} habitProps={this.props.habitProps} />
-        </View>
+        </View> */}
       </GestureRecognizer>
     );
   }
@@ -207,4 +190,4 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(ActionCreators, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cam);
+export default connect(mapStateToProps, mapDispatchToProps)(CameraContainer);

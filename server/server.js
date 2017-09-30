@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, "../client")));
 app.use(routes);
 
 // LISTEN TO PORT
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

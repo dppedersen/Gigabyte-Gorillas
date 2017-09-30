@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  ScrollView,
-  TextInput,
-  Dimensions,
-  StatusBar
-} from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView, TextInput, Dimensions, StatusBar } from "react-native";
 import { bindActionCreators } from "redux";
 import {
   Button,
@@ -193,7 +184,7 @@ class Images extends Component {
             <Button
               transparent
               onPress={() => {
-                Actions.habits();
+                Actions.challenges();
               }}
             >
               <Icon style={{ fontSize: 40, color: "white" }} name="list" />
@@ -250,9 +241,7 @@ class Images extends Component {
                           return !this.props.visibleUserFriends.includes(user.id);
                         })
                         .filter(user => {
-                          return user.username
-                            .toLowerCase()
-                            .includes(this.state.searchedUsername.toLowerCase());
+                          return user.username.toLowerCase().includes(this.state.searchedUsername.toLowerCase());
                         })
                         .map(user => {
                           return (

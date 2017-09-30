@@ -94,7 +94,7 @@ export const updatePhoto = (imageData, userData, habit) => {
   return dispatch => {
     dispatch(updateProfilePhotoInit());
     let putData = Object.assign({}, {data: {photo: imageData}, user: userData, habits: habit});
-    return fetch(`http://${MY_IP}:8080/api/users/`, {
+    return fetch(`http://${MY_IP}:3000/api/users/`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -120,7 +120,7 @@ export const updateEmail = (newEmail, userData, habit) => {
   return dispatch => {
     dispatch(updateUserEmailInit());
     let putData = Object.assign({}, {data: {email: newEmail}, user: userData, habits: habit});
-    return fetch(`http://${MY_IP}:8080/api/users/:${userData.id}`, {
+    return fetch(`http://${MY_IP}:3000/api/users/:${userData.id}`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -146,7 +146,7 @@ export const handleNotification = (status, userData, habit) => {
   return dispatch => {
     dispatch(handleNotificationInit());
     let putData = Object.assign({}, {data: {notifications: statusToBit}, user: userData, habits: habit});
-    return fetch(`http://${MY_IP}:8080/api/users/:${userData.id}`, {
+    return fetch(`http://${MY_IP}:3000/api/users/:${userData.id}`, {
       method: 'PUT',
       headers: {
         'Accept': 'applicaton/json',
@@ -172,7 +172,7 @@ export const handlePrivate = (status, userData, habit) => {
   return dispatch => {
     dispatch(handlePrivateInit());
     let putData = Object.assign({}, {data: {private: statusToBit}, user: userData, habits: habit});
-    return fetch(`http://${MY_IP}:8080/api/users/:${userData.id}`, {
+    return fetch(`http://${MY_IP}:3000/api/users/:${userData.id}`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

@@ -23,7 +23,7 @@ export const fetchUserFail = (err) => {
 
 
 const fetchWithToken = (dispatch, tokenArg) => {
-  return fetch(`http://${MY_IP}:8080/api/users`, {
+  return fetch(`http://${MY_IP}:3000/api/users`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',

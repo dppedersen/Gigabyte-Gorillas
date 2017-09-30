@@ -29,7 +29,7 @@ const AuthView = ({
           onChangeText={text => updateTextAction(text, "username")}
         />
       </Item>
-      <Item
+      {/* <Item
         regular
         style={route === "Sign Up" ? StyleSheet.flatten(styles.formInput) : StyleSheet.flatten(styles.displayNone)}
       >
@@ -41,7 +41,7 @@ const AuthView = ({
           autoCorrect={false}
           onChangeText={text => updateTextAction(text, "email")}
         />
-      </Item>
+      </Item> */}
       <Item regular style={StyleSheet.flatten(styles.formInput)}>
         <Input
           secureTextEntry={true}
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     alignItems: "stretch"
   },
   appLogo: {
-    height: 90,
+    height: 60,
     width: 140,
     resizeMode: "contain",
     marginTop: -20,

@@ -9,45 +9,43 @@ import { H1 } from "native-base";
 class Landing extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      timeout: false
-    };
-
-    setTimeout(this.noPersistTimeout.bind(this), 1000);
+    // this.state = {
+    //   timeout: false
+    // };
+    // setTimeout(this.noPersistTimeout.bind(this), 1000);
   }
 
-  componentDidUpdate() {
-    //like the airport
-    console.log("cdu token", this.props.user.token);
-    if (this.props.user.token) {
-      this.props.checkAuth(this.props.user.token);
-    }
-  }
+  // componentDidUpdate() {
+  //   //like the airport
+  //   console.log("cdu token", this.props.user.token);
+  //   if (this.props.user.token) {
+  //     this.props.checkAuth(this.props.user.token);
+  //   }
+  // }
 
-  shouldComponentUpdate() {
-    return this.props.user.token || this.state.timeout ? false : true;
-  }
+  // shouldComponentUpdate() {
+  //   return this.props.user.token || this.state.timeout ? false : true;
+  // }
 
-  noPersistTimeout() {
-    if (!this.props) {
-      setTimeout(this.noPersistTimeout.bind(this), 1000);
-    } else if (!this.props.routes.scene.sceneKey === "landing") {
-      return;
-    } else if (this.props.routes.scene.sceneKey === "landing") {
-      this.props.landingTimeout(this.props.user.token, this.props.routes.scene.title);
-    }
+  // noPersistTimeout() {
+  //   if (!this.props) {
+  //     setTimeout(this.noPersistTimeout.bind(this), 1000);
+  //   } else if (!this.props.routes.scene.sceneKey === "landing") {
+  //     return;
+  //   } else if (this.props.routes.scene.sceneKey === "landing") {
+  //     this.props.landingTimeout(this.props.user.token, this.props.routes.scene.title);
+  //   }
+  // }
+
+  componentDidMount() {
+    this.props.checkAuth();
   }
 
   render() {
     console.log("landing render isloggedin", this.props.auth.isLoggedIn);
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.logo}
-          source={{
-            uri: "https://s3.us-east-2.amazonaws.com/tgoc99habit/tendensee-logo-1000.png"
-          }}
-        />
+        <Image style={styles.logo} source={require("./../Assets/liftoff_bauhaus_transp.png")} />
       </View>
     );
   }
@@ -56,16 +54,14 @@ class Landing extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignSelf: "stretch",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#0277bd"
+    backgroundColor: colors.primary
   },
   logo: {
-    height: 50,
+    height: 100,
     width: 200,
-    marginBottom: 200,
-    resizeMode: "contain"
+    marginBottom: 200
   }
 });
 

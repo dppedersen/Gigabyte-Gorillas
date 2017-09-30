@@ -9,6 +9,7 @@ import Auth from "./AuthContainer";
 import Setting from "./SettingsContainer";
 import Landing from "./LandingContainer";
 import Images from "./ProfileContainer";
+import Challenges from "./ChallengesContainer";
 import { Icon } from "native-base";
 
 const ReduxRouter = connect()(Router);
@@ -23,15 +24,16 @@ class AppRouter extends Component {
         barButtonIconStyle={styles.barButtonIconStyle}
       >
         <Scene key="root">
-          <Scene
-            key="landing"
-            component={Landing}
-            hideNavBar={true}
-            title="Landing"
-            passProps={true}
-            initial={true}
-          />
+          <Scene key="landing" component={Landing} hideNavBar={true} title="Landing" passProps={true} initial={true} />
           <Scene key="auth" component={Auth} hideNavBar={true} title="Signup" passProps={true} />
+          <Scene
+            key="challenges"
+            component={Challenges}
+            hideNavBar={true}
+            panHandlers={null}
+            title="Challenges"
+            passProps={true}
+          />
           <Scene
             key="camera"
             component={Camera}
@@ -48,13 +50,7 @@ class AppRouter extends Component {
             passProps={true}
             animation="leftToRight"
           />
-          <Scene
-            key="setting"
-            component={Setting}
-            title="Setting Page"
-            hideNavBar={true}
-            passProps={true}
-          />
+          <Scene key="setting" component={Setting} title="Setting Page" hideNavBar={true} passProps={true} />
         </Scene>
       </ReduxRouter>
     );

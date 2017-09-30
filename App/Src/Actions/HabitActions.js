@@ -69,7 +69,7 @@ export const updateHabit = (userData, habit) => {
     console.log('in update habit, ud then habit:', userData, habit)
     let postData = Object.assign({}, userData, {data: habit}); // WILL EVENTUALLY HAVE A HABIT TYPE!!!
 
-    return fetch(`http://${MY_IP}:8080/api/habits`, {
+    return fetch(`http://${MY_IP}:3000/api/habits`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -94,7 +94,7 @@ export const deleteHabit = (userData, habitId) => {
     dispatch (deleteHabitInit());
     let deleteData = {habitId}
     console.log('in delete habit', deleteData)
-    return fetch(`http://${MY_IP}:8080/api/habits`, {
+    return fetch(`http://${MY_IP}:3000/api/habits`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -120,7 +120,7 @@ export const addHabit = (userData, habit) => {
     console.log('in add habit, ud then habit:', userData, habit)
     let postData = Object.assign({}, userData, {data: habit}); // WILL EVENTUALLY HAVE A HABIT TYPE!!!
 
-    return fetch(`http://${MY_IP}:8080/api/habits`, {
+    return fetch(`http://${MY_IP}:3000/api/habits`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
