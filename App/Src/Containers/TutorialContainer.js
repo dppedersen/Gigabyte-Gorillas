@@ -1,20 +1,24 @@
 import React, { Component, PropTypes } from "react";
+import { View } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import ChallengesListView from "../Components/ChallengesListView.js";
 
-class ChallengesContainer extends Component {
+class TutorialContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      name: "",
+      phoneNumber: "",
+      contacts: ""
+    };
   }
 
-  viewChallenge() {}
+  storeNameAndPhoneNumber(name, phoneNumber) {}
 
-  addChallenge() {}
+  parseContacts() {}
 
   render() {
-    return <ChallengesListView />;
+    return <View />;
   }
 }
 const mapStateToProps = () => ({});

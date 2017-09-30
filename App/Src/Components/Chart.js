@@ -31,19 +31,19 @@ export default class ChallengeChart extends Component {
   render() {
     return (
       <View style={this.props.style}>
-        {/* <VictoryChart> */}
-        <VictoryLine
-          style={{
-            data: { stroke: "#c43a31" },
-            parent: { border: "1px solid #ccc" }
-          }}
-          height={200}
-          width={350}
-          data={[{ x: 1, y: 2 }, { x: 2, y: 3 }, { x: 3, y: 5 }, { x: 4, y: 4 }, { x: 5, y: 7 }]}
-        />
-        {/* <VictoryAxis />
+        <VictoryChart>
+          <VictoryLine
+            style={{
+              data: { stroke: "#c43a31" },
+              parent: { border: "1px solid #ccc" }
+            }}
+            height={200}
+            width={350}
+            data={[{ x: 1, y: 2 }, { x: 2, y: 3 }, { x: 3, y: 5 }, { x: 4, y: 4 }, { x: 5, y: 7 }]}
+          />
+          <VictoryAxis />
           <VictoryAxis dependentAxis />
-        </VictoryChart> */}
+        </VictoryChart>
       </View>
     );
   }

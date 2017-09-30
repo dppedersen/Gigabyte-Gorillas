@@ -5,32 +5,14 @@ import { Actions } from "react-native-router-flux";
 import colors from "./../ColorPalette.js";
 import ChallengeChart from "./Chart.js";
 import PhotoMap from "./PhotoMap.js";
+import TopBar from "./TopBar.js";
 
 const { width } = Dimensions.get("window");
 const photoWidth = (width - 4 * 5) / 3;
 
 const FullChallengeView = () =>
   <View style={styles.container}>
-    <View style={styles.topRowContainer}>
-      <View style={styles.leftButtonContainer}>
-        <Button
-          dark
-          transparent
-          iconCenter
-          onPress={() => {
-            Actions.images();
-          }}
-        >
-          <Icon name="arrow-back" style={{ color: colors.primaryText }} />
-        </Button>
-      </View>
-      <View style={styles.logo}>
-        <H1 style={StyleSheet.flatten(styles.headerText)}>MatchUp</H1>
-      </View>
-      <View style={styles.rightButtonContainer}>
-        <Button dark transparent iconCenter />
-      </View>
-    </View>
+    <TopBar />
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.vsLine}>
         <View style={styles.userContainer}>
@@ -70,35 +52,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start"
   },
-  topRowContainer: {
-    backgroundColor: colors.primaryDark,
-    alignSelf: "stretch",
-    flexDirection: "row",
-    margin: 0,
-    marginBottom: 0,
-    justifyContent: "space-between"
-  },
-  headerText: {
-    fontWeight: "bold",
-    fontStyle: "italic",
-    color: colors.primaryText
-  },
-  logo: {
-    alignSelf: "center"
-  },
-  leftButtonContainer: {
-    flex: 1
-  },
-  rightButtonContainer: {
-    flex: 1
-  },
+
   scrollView: {
     alignItems: "center"
   },
   vsLine: {
     alignSelf: "stretch",
     flexDirection: "row",
-    justifyContent: "space-around"
+    justifyContent: "center"
   },
   userContainer: {
     alignItems: "center",
@@ -111,7 +72,8 @@ const styles = StyleSheet.create({
   },
   usernameText: {
     fontWeight: "bold",
-    margin: 5
+    margin: 5,
+    color: colors.primaryText
   },
   vsTextContainer: {
     justifyContent: "center"

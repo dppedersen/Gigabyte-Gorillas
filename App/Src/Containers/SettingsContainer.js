@@ -21,7 +21,6 @@ import { bindActionCreators } from "redux";
 import { MY_IP } from "./../myip";
 import Prompt from "react-native-prompt";
 import colors from "../ColorPalette.js";
-import BackNav from "../Components/BackNav";
 import WordTitleNav from "../Components/WordTitleNav";
 import NavigationBar from "react-native-navbar";
 
@@ -56,49 +55,27 @@ class UserSettings extends Component {
   };
 
   toggleNotification = () => {
-    this.setState(
-      { notification: !this.state.notification },
-      this.sendNotificationUpdate
-    );
+    this.setState({ notification: !this.state.notification }, this.sendNotificationUpdate);
     Snackbar.show({
-      backgroundColor: this.state.notification
-        ? colors.primary
-        : colors.primaryLight,
-      title: this.state.notification
-        ? "All Notifications Turned OFF"
-        : "All Notifications Turned ON",
+      backgroundColor: this.state.notification ? colors.primary : colors.primaryLight,
+      title: this.state.notification ? "All Notifications Turned OFF" : "All Notifications Turned ON",
       duration: Snackbar.LENGTH_SHORT
     });
   };
 
   sendNotificationUpdate = () => {
-    this.props.handleNotification(
-      this.state.notification,
-      this.props.user,
-      this.props.habits
-    );
+    this.props.handleNotification(this.state.notification, this.props.user, this.props.habits);
   };
 
   sendPrivateUpdate = () => {
-    this.props.handlePrivate(
-      this.state.allPrivate,
-      this.props.user,
-      this.props.habits
-    );
+    this.props.handlePrivate(this.state.allPrivate, this.props.user, this.props.habits);
   };
 
   toggleAllPrivate = () => {
-    this.setState(
-      { allPrivate: !this.state.allPrivate },
-      this.sendPrivateUpdate
-    );
+    this.setState({ allPrivate: !this.state.allPrivate }, this.sendPrivateUpdate);
     Snackbar.show({
-      backgroundColor: this.state.allPrivate
-        ? colors.primary
-        : colors.primaryLight,
-      title: this.state.allPrivate
-        ? "All Habits Set Private"
-        : "All Habits Set Public",
+      backgroundColor: this.state.allPrivate ? colors.primary : colors.primaryLight,
+      title: this.state.allPrivate ? "All Habits Set Private" : "All Habits Set Public",
       duration: Snackbar.LENGTH_SHORT
     });
   };
@@ -146,10 +123,7 @@ class UserSettings extends Component {
         />
         <View style={styles.container}>
           <View style={styles.profileWrap}>
-            <TouchableOpacity
-              style={{ alignSelf: "center", marginBottom: 20 }}
-              onPress={this.ImageShow.bind(this)}
-            >
+            <TouchableOpacity style={{ alignSelf: "center", marginBottom: 20 }} onPress={this.ImageShow.bind(this)}>
               <Image
                 source={{
                   uri:
@@ -188,17 +162,12 @@ class UserSettings extends Component {
                 onCancel={() => this.setState({ promptVisible: false })}
                 onSubmit={value =>
                   this.isValidateEmail(value)
-                    ? this.setState(
-                        { promptVisible: false },
-                        this.updateEmail(value)
-                      )
+                    ? this.setState({ promptVisible: false }, this.updateEmail(value))
                     : Alert.alert("Invalid email! please try again")}
               />
               <Text style={styles.textst}>
                 Facebook:{" "}
-                {this.state.facebook === "NO_FACEBOOK_AUTH"
-                  ? "Not signed in with facebook!"
-                  : this.state.facebook}
+                {this.state.facebook === "NO_FACEBOOK_AUTH" ? "Not signed in with facebook!" : this.state.facebook}
               </Text>
             </View>
           </View>

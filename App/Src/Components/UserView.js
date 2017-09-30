@@ -1,33 +1,13 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  ScrollView,
-  Dimensions,
-  TextInput,
-  TouchableOpacity
-} from "react-native";
-import {
-  Container,
-  Button,
-  Icon,
-  Tabs,
-  Tab,
-  TabHeading,
-  H1,
-  H2,
-  H3
-} from "native-base";
+import { Text, View, StyleSheet, Image, ScrollView, Dimensions, TextInput, TouchableOpacity } from "react-native";
+import { Container, Button, Icon, Tabs, Tab, TabHeading, H1, H2, H3 } from "native-base";
 import { Actions } from "react-native-router-flux";
 import Friend from "./FriendsListItem";
 import colors from "./../ColorPalette";
 import ModalRoot from "./ModalRoot";
 import NavigationBar from "react-native-navbar";
-import SettingsNav from "../Components/SettingsNav";
-import BackNav from "../Components/BackNav";
 import TitleNav from "../Components/TitleNav";
+import TopBar from "./TopBar.js";
 
 const { width } = Dimensions.get("window");
 const photoWidth = (width - 4 * 5) / 3;
@@ -53,77 +33,13 @@ class UserView extends Component {
     return (
       <Container>
         <View style={styles.screenAboveTabs}>
-          <View style={styles.topRowContainer}>
-            <View style={styles.leftButtonContainer}>
-              {this.props.isSelf
-                ? <Button
-                    style={{ alignSelf: "flex-start" }}
-                    dark
-                    transparent
-                    iconCenter
-                    onPress={() => {
-                      Actions.setting();
-                    }}
-                  >
-                    <Icon
-                      name="settings"
-                      style={{ color: colors.primaryText }}
-                    />
-                  </Button>
-                : <Button
-                    dark
-                    transparent
-                    iconCenter
-                    onPress={() => {
-                      this._changeVisibleUser();
-                    }}
-                  >
-                    <Icon
-                      name="arrow-back"
-                      style={{ color: colors.primaryText }}
-                    />
-                  </Button>}
-            </View>
-            <View style={styles.logo}>
-              <Image
-                style={{
-                  height: 30,
-                  width: 135,
-                  marginBottom: 0,
-                  resizeMode: "contain"
-                }}
-                source={{
-                  uri:
-                    "https://s3.us-east-2.amazonaws.com/tgoc99habit/tendensee-logo-1000.png"
-                }}
-              />
-            </View>
-            <View style={styles.rightButtonContainer}>
-              {this.props.isSelf
-                ? <Button
-                    style={{ alignSelf: "flex-end" }}
-                    dark
-                    transparent
-                    iconCenter
-                    onPress={() => {
-                      Actions.camera();
-                    }}
-                  >
-                    <Icon
-                      name="arrow-forward"
-                      style={{ color: colors.primaryText }}
-                    />
-                  </Button>
-                : <Button dark transparent iconCenter />}
-            </View>
-          </View>
+          <TopBar />
           <View style={styles.userInfo}>
             <View style={styles.userPictureContainer}>
               <Image
                 source={{
                   uri:
-                    this.props.user.user &&
-                    this.props.user.user.photo !== "NO_PHOTO"
+                    this.props.user.user && this.props.user.user.photo !== "NO_PHOTO"
                       ? this.props.user.user.photo
                       : "https://cdn3.iconfinder.com/data/icons/back-to-the-future/512/marty-mcfly-512.png"
                 }}
@@ -140,8 +56,7 @@ class UserView extends Component {
                 {/* <Text style={styles.taglineText}>{this.props.user.user ? this.props.user.user.tagline : null}</Text> */}
                 <Text style={styles.taglineText}>
                   {this.props.user.user
-                    ? `${this.props.user.habits.length} Habits, ${this.props
-                        .images.length} Photos, ${this.props.friends
+                    ? `${this.props.user.habits.length} Habits, ${this.props.images.length} Photos, ${this.props.friends
                         .length} Friends`
                     : null}
                 </Text>
@@ -154,9 +69,7 @@ class UserView extends Component {
           <Tab
             style={{ backgroundColor: colors.background }}
             heading={
-              <TabHeading
-                style={{ padding: 10, backgroundColor: colors.secondary }}
-              >
+              <TabHeading style={{ padding: 10, backgroundColor: colors.secondary }}>
                 <Text style={{ color: colors.secondaryText }}>Photos</Text>
               </TabHeading>
             }
@@ -177,13 +90,8 @@ class UserView extends Component {
                     </View>
                   : this.props.images.map(image => {
                       return (
-                        <TouchableOpacity
-                          onPress={() => this.props.onPressPhoto(image)}
-                        >
-                          <Image
-                            source={{ uri: image.picture }}
-                            style={styles.habitImage}
-                          />
+                        <TouchableOpacity onPress={() => this.props.onPressPhoto(image)}>
+                          <Image source={{ uri: image.picture }} style={styles.habitImage} />
                         </TouchableOpacity>
                       );
                     })}
@@ -220,10 +128,7 @@ class UserView extends Component {
                         this.props.openModal();
                       }}
                     >
-                      <Icon
-                        name="add-circle"
-                        style={{ color: colors.primaryDark }}
-                      />
+                      <Icon name="add-circle" style={{ color: colors.primaryDark }} />
                     </Button>
                   </View>
                 </View>}
@@ -238,11 +143,7 @@ class UserView extends Component {
                           return this.props.friends.includes(user.id);
                         })
                         .filter(user => {
-                          return user.username
-                            .toLowerCase()
-                            .includes(
-                              this.state.searchFriendsText.toLowerCase()
-                            );
+                          return user.username.toLowerCase().includes(this.state.searchFriendsText.toLowerCase());
                         })
                         .map(user => {
                           return (

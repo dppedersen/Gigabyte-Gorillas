@@ -9,6 +9,7 @@ import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures"
 import { Actions, ActionConst } from "react-native-router-flux";
 import GotPhotoModal from "./../Components/GotPhotoModal";
 import colors from "./../ColorPalette";
+import BottomBar from "./../Components/BottomBar.js";
 
 // import { Accelerometer, Gyroscope } from 'react-native-sensors';
 // let accelerationObservable;
@@ -86,36 +87,7 @@ class CameraContainer extends Component {
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}
         >
-          <View style={styles.buttonsContainer}>
-            <Button
-              transparent
-              onPress={() => {
-                Actions.images();
-              }}
-            >
-              <Icon style={{ fontSize: 40, color: "white", opacity: 1 }} name="person" />
-            </Button>
-            <View
-              style={{
-                borderRadius: 25,
-                borderBottomWidth: 3,
-                borderBottomColor: "white",
-                paddingBottom: 2
-              }}
-            >
-              <Button transparent onPress={() => this.takePicture()}>
-                <Icon style={{ fontSize: 50, color: "white" }} name="radio-button-on" />
-              </Button>
-            </View>
-            <Button
-              transparent
-              onPress={() => {
-                Actions.challenges();
-              }}
-            >
-              <Icon style={{ fontSize: 40, color: "white" }} name="list" />
-            </Button>
-          </View>
+          <BottomBar />
         </Camera>
 
         {/* <View style={styles.gotPhotoModal}>
