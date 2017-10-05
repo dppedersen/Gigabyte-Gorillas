@@ -3,15 +3,13 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ChallengesListView from "../Components/ChallengesListView.js";
 
-class ChallengesContainer extends Component {
+class ChallengesListContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   viewChallenge() {}
-
-  addChallenge() {}
 
   render() {
     return <ChallengesListView />;
@@ -22,4 +20,4 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({}, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChallengesContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ChallengesListContainer);

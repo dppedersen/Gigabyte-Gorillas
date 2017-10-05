@@ -12,7 +12,7 @@ const BottomBar = () =>
         Actions.images();
       }}
     >
-      <Icon style={{ fontSize: 40, color: "white", opacity: 1 }} name="person" />
+      <Icon style={{ fontSize: 40, color: "white" }} name="list" />
     </Button>
     <Button transparent onPress={() => Actions.camera()}>
       <Icon style={{ fontSize: 40, color: "white" }} name="radio-button-on" />
@@ -23,7 +23,7 @@ const BottomBar = () =>
         Actions.challenges();
       }}
     >
-      <Icon style={{ fontSize: 40, color: "white" }} name="list" />
+      <Icon style={{ fontSize: 40, color: "white" }} name="pulse" />
     </Button>
   </View>;
 

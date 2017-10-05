@@ -3,20 +3,17 @@ import { Alert, ScrollView, Text, TextInput, View, StyleSheet, Image, Dimensions
 import { Button, Card, Form, Item, Input, H1, H2, CardItem, Body, Icon } from "native-base";
 import colors from "./../ColorPalette.js";
 import BottomBar from "./BottomBar.js";
+import TopBar from "./TopBar.js";
+import NewLiftOffButton from "./NewLiftOffButton";
 
 const ChallengesListView = ({ viewChallenge, addChallenge }) =>
   <View style={styles.container}>
-    <View style={styles.headerContainer}>
-      <Image
-        style={{
-          height: 50,
-          width: 135,
-          marginTop: -10,
-          marginBottom: 3,
-          resizeMode: "contain"
-        }}
-        source={require("./../Assets/liftoff_bauhaus_transp.png")}
-      />
+    <TopBar />
+    <Card style={StyleSheet.flatten(styles.card)}>
+      <Text>Test</Text>
+    </Card>
+    <View style={styles.startButtonContainer}>
+      <NewLiftOffButton style={styles.startButton} textStyle={styles.startButtonText} />
     </View>
     <BottomBar />
   </View>;
@@ -24,15 +21,25 @@ const ChallengesListView = ({ viewChallenge, addChallenge }) =>
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    backgroundColor: colors.primary,
+    backgroundColor: colors.secondaryDark,
     flex: 1,
-    justifyContent: "flex-start"
+    justifyContent: "center"
   },
-  headerContainer: {
-    alignSelf: "center",
-    backgroundColor: colors.primaryDark,
-    alignSelf: "stretch",
-    alignItems: "center"
+  card: {
+    flex: 0,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 50,
+    width: "96%"
+  },
+  startButtonContainer: {
+    alignSelf: "stretch"
+  },
+  startButton: {
+    margin: 15
+  },
+  startButtonText: {
+    // color: "red"
   }
 });
 

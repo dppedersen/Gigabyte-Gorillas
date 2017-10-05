@@ -26,4 +26,4 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({}, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChallengesContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ChallengesListContainer);

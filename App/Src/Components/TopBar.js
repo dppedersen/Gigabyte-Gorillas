@@ -40,11 +40,10 @@ const TopBar = () =>
 const styles = StyleSheet.create({
   topRowContainer: {
     backgroundColor: colors.primaryDark,
-    alignSelf: "stretch",
     flexDirection: "row",
-    margin: 0,
-    marginBottom: 0,
-    justifyContent: "space-between"
+    position: "absolute",
+    top: 0,
+    flex: 1
   },
   headerContainer: {
     alignSelf: "center"
