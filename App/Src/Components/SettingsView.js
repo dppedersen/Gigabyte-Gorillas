@@ -6,30 +6,9 @@ import { Actions } from "react-native-router-flux";
 import TopBar from "./TopBar.js";
 import BottomBar from "./BottomBar.js";
 
-const ProfileView = () =>
+const SettingsView = () =>
   <View style={styles.container}>
     <TopBar />
-    {/* <View style={styles.userContainer}>
-      <Image source={require("./../Assets/dp.jpg")} style={styles.profileImage} />
-
-      <Text style={styles.usernameText}>dppedersen</Text>
-      <Text style={styles.infoText}>{`23 Lifts, 230 Friends`}</Text>
-    </View> */}
-    <View style={styles.allButtonContainer}>
-      <Button light block onPress={() => Actions.friends()} style={StyleSheet.flatten(styles.button)}>
-        <Text style={styles.buttonText}>Friends</Text>
-      </Button>
-      <Button light block onPress={() => Actions.friends()} style={StyleSheet.flatten(styles.button)}>
-        <Text style={styles.buttonText}>Saved Photos</Text>
-      </Button>
-      {/* <Button light block onPress={() => Actions.settings()} style={StyleSheet.flatten(styles.button)}>
-        <Text style={styles.buttonText}>Statistics</Text>
-      </Button> */}
-      <Button light block onPress={() => Actions.settings()} style={StyleSheet.flatten(styles.button)}>
-        <Text style={styles.buttonText}>Settings</Text>
-      </Button>
-    </View>
-    <BottomBar />
   </View>;
 
 const styles = StyleSheet.create({
@@ -82,4 +61,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProfileView;
+export default SettingsView;

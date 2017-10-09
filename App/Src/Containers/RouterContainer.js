@@ -6,9 +6,9 @@ import { bindActionCreators } from "redux";
 import { ActionCreators } from "../Actions/ActionCreators";
 import Camera from "./CameraContainer";
 import Auth from "./AuthContainer";
-import Settings from "./SettingsContainer";
+import SettingsOld from "./SettingsContainerOld";
 import Landing from "./LandingContainer";
-import Images from "./ProfileContainer";
+import Settings from "./SettingsContainer";
 import Challenges from "./ChallengesListContainer";
 import { Icon } from "native-base";
 
@@ -43,29 +43,29 @@ class AppRouter extends Component {
             passProps={true}
           />
           <Scene
-            key="images"
-            component={Images}
-            title="Images Page"
-            hideNavBar={true}
-            passProps={true}
-            animation="leftToRight"
-          />
-          <Scene
             key="settings"
             component={Settings}
-            title="Settings"
+            title="Settings Page"
             hideNavBar={true}
             passProps={true}
             animation="leftToRight"
           />
           <Scene
+            key="settingsOld"
+            component={SettingsOld}
+            title="SettingsOld"
+            hideNavBar={true}
+            passProps={true}
+            animation="leftToRight"
+          />
+          {/* <Scene
             key="newLiftOff"
             component={Images}
             title="Images Page"
             hideNavBar={true}
             passProps={true}
             animation="leftToRight"
-          />
+          /> */}
         </Scene>
       </ReduxRouter>
     );

@@ -9,7 +9,7 @@ const BottomBar = () =>
     <Button
       transparent
       onPress={() => {
-        Actions.images();
+        Actions.settings();
       }}
     >
       <Icon style={{ fontSize: 40, color: "white" }} name="list" />
