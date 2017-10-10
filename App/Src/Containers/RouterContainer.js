@@ -26,6 +26,17 @@ class AppRouter extends Component {
         <Scene key="root">
           <Scene key="landing" component={Landing} hideNavBar={true} title="Landing" passProps={true} initial={true} />
           <Scene key="auth" component={Auth} hideNavBar={true} title="Signup" passProps={true} />
+          <Scene key="settings" component={Settings} title="Settings Page" hideNavBar={true} passProps={true} />
+
+          <Scene
+            key="camera"
+            component={Camera}
+            hideNavBar={true}
+            panHandlers={null}
+            title="Capture Your Habit"
+            passProps={true}
+            animation="none"
+          />
           <Scene
             key="challenges"
             component={Challenges}
@@ -34,38 +45,6 @@ class AppRouter extends Component {
             title="Challenges"
             passProps={true}
           />
-          <Scene
-            key="camera"
-            component={Camera}
-            hideNavBar={true}
-            panHandlers={null}
-            title="Capture Your Habit"
-            passProps={true}
-          />
-          <Scene
-            key="settings"
-            component={Settings}
-            title="Settings Page"
-            hideNavBar={true}
-            passProps={true}
-            animation="leftToRight"
-          />
-          <Scene
-            key="settingsOld"
-            component={SettingsOld}
-            title="SettingsOld"
-            hideNavBar={true}
-            passProps={true}
-            animation="leftToRight"
-          />
-          {/* <Scene
-            key="newLiftOff"
-            component={Images}
-            title="Images Page"
-            hideNavBar={true}
-            passProps={true}
-            animation="leftToRight"
-          /> */}
         </Scene>
       </ReduxRouter>
     );

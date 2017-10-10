@@ -12,3 +12,17 @@ const App = () =>
   </Provider>;
 
 AppRegistry.registerComponent("App", () => App);
+
+const state = {
+  user: {
+    token: "",
+    username: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    notificationsActive: "",
+    friends: [],
+    challenges: [{}]
+  }
+};

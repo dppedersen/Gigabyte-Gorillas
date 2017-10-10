@@ -8,7 +8,7 @@ import NewLiftOffButton from "./NewLiftOffButton";
 
 const ChallengesListView = ({ viewChallenge, addChallenge }) =>
   <View style={styles.container}>
-    <TopBar />
+    <TopBar location="challenges" />
     <Card style={StyleSheet.flatten(styles.card)}>
       <Text>Test</Text>
     </Card>

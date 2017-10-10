@@ -12,10 +12,18 @@ const BottomBar = () =>
         Actions.settings();
       }}
     >
-      <Icon style={{ fontSize: 40, color: "white" }} name="list" />
+      <Icon style={StyleSheet.flatten(styles.icon)} name="settings" />
+    </Button>
+    <Button
+      transparent
+      onPress={() => {
+        Actions.settings();
+      }}
+    >
+      <Icon style={StyleSheet.flatten(styles.icon)} name={"person-add" || "people"} />
     </Button>
     <Button transparent onPress={() => Actions.camera()}>
-      <Icon style={{ fontSize: 40, color: "white" }} name="radio-button-on" />
+      <Icon style={StyleSheet.flatten(styles.icon)} name="radio-button-on" />
     </Button>
     <Button
       transparent
@@ -23,7 +31,15 @@ const BottomBar = () =>
         Actions.challenges();
       }}
     >
-      <Icon style={{ fontSize: 40, color: "white" }} name="pulse" />
+      <Icon style={StyleSheet.flatten(styles.icon)} name="pulse" />
+    </Button>
+    <Button
+      transparent
+      onPress={() => {
+        Actions.challenges();
+      }}
+    >
+      <Icon style={StyleSheet.flatten(styles.icon)} name="heart" />
     </Button>
   </View>;
 
@@ -36,13 +52,12 @@ const styles = StyleSheet.create({
     opacity: 1.0,
     borderRadius: 0,
     alignSelf: "stretch",
-    backgroundColor: colors.primaryDark,
-    paddingTop: 5,
+    backgroundColor: colors.secondary,
     flex: 0,
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
-    marginBottom: 10
+    padding: 0
   }
 });
 

@@ -10,6 +10,7 @@ import { Actions, ActionConst } from "react-native-router-flux";
 import GotPhotoModal from "./../Components/GotPhotoModal";
 import colors from "./../ColorPalette";
 import BottomBar from "./../Components/BottomBar.js";
+import CameraView from "./../Components/CameraView.js";
 
 // import { Accelerometer, Gyroscope } from 'react-native-sensors';
 // let accelerationObservable;
@@ -63,20 +64,13 @@ class CameraContainer extends Component {
     //     }
     //   })
     // }
-    console.log("cam all state", this.state);
-    console.log("cam ernder day, habit", this.state.habitDay, this.state.habitProps, this.takePicture);
     const config = {
       velocityThreshold: 0.3,
       directionalOffsetThreshold: 80
     };
 
     return (
-      <GestureRecognizer
-        style={styles.gesture}
-        onSwipeLeft={() => this.onSwipeLeft()}
-        config={config}
-        onSwipeRight={() => this.onSwipeRight()}
-      >
+      <View style={{ flex: 1 }}>
         <StatusBar hidden={true} />
         <Camera
           ref={cam => {
@@ -89,11 +83,7 @@ class CameraContainer extends Component {
         >
           <BottomBar />
         </Camera>
-
-        {/* <View style={styles.gotPhotoModal}>
-          <GotPhotoModal habitDay={this.state.habitDay} habitProps={this.props.habitProps} />
-        </View> */}
-      </GestureRecognizer>
+      </View>
     );
   }
 

@@ -1,63 +1,227 @@
 import React, { Component } from "react";
-import { Alert, ScrollView, Text, TextInput, View, StyleSheet, Image, Dimensions } from "react-native";
+import {
+  Alert,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+  StyleSheet,
+  Image,
+  Dimensions,
+  Switch,
+  TouchableOpacity
+} from "react-native";
 import { Button, Card, Form, Item, Input, H1, H2, CardItem, Body, Icon } from "native-base";
 import colors from "./../ColorPalette.js";
 import { Actions } from "react-native-router-flux";
 import TopBar from "./TopBar.js";
 import BottomBar from "./BottomBar.js";
 
-const SettingsView = () =>
+// ImageShow() {
+//   ImagePicker.showImagePicker(options, (response) => {
+//     if (response.didCancel) {
+//       console.log('User cancelled image picker');
+//     }
+//     else if (response.error) {
+//       console.log('ImagePicker Error: ', response.error);
+//     }
+//     else if (response.customButton) {
+//       console.log('User tapped custom button: ', response.customButton);
+//     }
+//     else {
+//       this.handlePhoto(response.data);
+//     }
+//   });
+// }
+//
+// const options = {
+//   title: 'Select Photo',
+//   quality: .2,
+//   customButtons: [
+//     {name: 'fb', title: 'Choose Photo from Facebook'},
+//     {name:'instagram', title: 'Choose Photo from Instagram'}
+//   ],
+//   storageOptions: {
+//     skipBackup: false,
+//     path: 'images'
+//   }
+// };
+//
+//
+// handlePhoto = (photo) => {
+//   this.props.updatePhoto(photo, this.props.user, this.props.habits);
+// };
+//
+// isValidateEmail(promptValue){
+//   var email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   return email.test(promptValue);
+// };
+
+const SettingsView = ({ username, firstName, lastName, phoneNumber }) =>
   <View style={styles.container}>
-    <TopBar />
+    <TopBar location={"settings"} />
+    <View style={styles.userContainer}>
+      <Image source={require("./../Assets/dp.jpg")} style={styles.profileImage} />
+      <View style={{ flexDirection: "column", paddingLeft: 5 }}>
+        <Text style={styles.usernameText}>dppedersen</Text>
+        <Text style={styles.editPhotoText}>Edit profile photo</Text>
+      </View>
+    </View>
+    <View style={styles.firstNameContainer}>
+      <Text style={styles.firstNameText}>First Name:</Text>
+      <View style={styles.formContainer}>
+        <Form>
+          <Item rounded style={StyleSheet.flatten(styles.formItem)}>
+            <Input
+              value={"Duncan"}
+              onChangeText={text => {
+                this.updateState("firstName", text);
+              }}
+            />
+          </Item>
+        </Form>
+      </View>
+    </View>
+    <View style={styles.lastNameContainer}>
+      <Text style={styles.lastNameText}>Last Name:</Text>
+      <View style={styles.formContainer}>
+        <Form>
+          <Item rounded style={StyleSheet.flatten(styles.formItem)}>
+            <Input
+              value={"Pedersen"}
+              onChangeText={text => {
+                this.update("lastName", text);
+              }}
+            />
+          </Item>
+        </Form>
+      </View>
+    </View>
+    <View style={styles.emailContainer}>
+      <Text style={styles.emailText}>E-mail:</Text>
+      <View style={styles.formContainer}>
+        <Form>
+          <Item rounded style={StyleSheet.flatten(styles.formItem)}>
+            <Input
+              value={"pedersen.duncan@gmail.com"}
+              onChangeText={text => {
+                this.update("email", text);
+              }}
+            />
+          </Item>
+        </Form>
+      </View>
+    </View>
+    <View style={styles.phoneNumberContainer}>
+      <Text style={styles.phoneNumberText}>Phone Number:</Text>
+      <View style={styles.formContainer}>
+        <Form>
+          <Item rounded style={StyleSheet.flatten(styles.formItem)}>
+            <Input
+              value={"8608038095"}
+              onChangeText={text => {
+                this.update("phoneNumber", text);
+              }}
+            />
+          </Item>
+        </Form>
+      </View>
+    </View>
+    <View style={styles.notificationsContainer}>
+      <Text>Silence Notifications:</Text>
+      <Switch />
+    </View>
+    <View style={styles.saveChangesContainer}>
+      <Button rounded success>
+        <Text style={styles.buttonText}>Save Changes</Text>
+      </Button>
+    </View>
+    <View style={styles.accountSettingsContaienr}>
+      <TouchableOpacity>
+        <Text style={styles.accountSettingsText}>Account Settings</Text>
+      </TouchableOpacity>
+    </View>
+    <BottomBar />
   </View>;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.secondaryDark,
-    justifyContent: "space-around"
+    backgroundColor: "beige",
+    justifyContent: "flex-start",
+    alignItems: "center"
   },
   userContainer: {
-    backgroundColor: colors.primaryLight,
     alignItems: "center",
     alignSelf: "stretch",
-    padding: 15,
-    marginTop: -80
-    // marginBottom: 10
-    // flex: 1
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 60
   },
   profileImage: {
-    height: 80,
-    width: 80,
-    borderRadius: 40
+    height: 60,
+    width: 60,
+    borderRadius: 30
   },
   usernameText: {
     fontWeight: "bold",
     fontSize: 20,
     color: colors.secondaryText
   },
-  infoText: {
-    fontStyle: "italic"
+  editPhotoText: {
+    fontStyle: "italic",
+    fontSize: 10
   },
-  allButtonContainer: {
-    backgroundColor: colors.secondaryDark
-    // flex: 1
-    // marginBottom: -40
-    // marginTop: -200
+  firstNameContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    margin: 20
   },
-  button: {
-    margin: 15
-    // marginBottom: -10
+  lastNameContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginLeft: 20,
+    marginRight: 20
+  },
+  emailContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20
+  },
+  phoneNumberContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    margin: 20
+  },
+  formContainer: {
+    flex: 2
+  },
+  formItem: {
+    marginLeft: 15,
+    height: 50
+  },
+  notificationsContainer: {
+    alignSelf: "stretch",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
+  saveChangesContainer: {
+    margin: 20
   },
   buttonText: {
-    fontSize: 18
-    // color: "red"
+    color: "white"
   },
-  blueScreen: {
-    // marginTop: -
-    // flex: 1,
-    // justifyContent: "space-around"
-    // flexGrow: 1
+  accountSettingsContaienr: {},
+  accountSettingsText: {
+    color: "black",
+    textDecorationLine: "underline"
   }
 });
 

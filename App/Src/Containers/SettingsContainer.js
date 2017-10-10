@@ -15,20 +15,34 @@ import colors from "./../ColorPalette";
 import BottomBar from "./../Components/BottomBar.js";
 import SettingsView from "./../Components/SettingsView.js";
 
-class ProfileContainer extends Component {
+class SettingsContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      firstName: this.props.firstName,
+      lastName: this.props.lastName,
+      email: this.props.email,
+      phoneNumber: this.props.phoneNumber
+    };
   }
 
+  update(field, value) {
+    this.setState({ [field]: value });
+  }
+
+  save() {}
+
   render() {
-    return <SettingsView />;
+    return <SettingsView update={this.update.bind(this)} save={this.save.bind(this)} />;
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    user: state.user.userData
+    firstName: state.user.firstName,
+    lastName: state.user.lastName,
+    email: state.user.email,
+    phoneNumber: state.user.phoneNumber
   };
 };
 
@@ -36,4 +50,4 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(ActionCreators, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer);
