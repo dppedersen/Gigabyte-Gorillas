@@ -8,9 +8,9 @@ const TopBar = ({ location }) =>
   <View style={styles.topRowContainer}>
     <View style={styles.leftButtonContainer} />
     <View style={styles.headerContainer}>
-      {location === "settings"
-        ? <H3 style={StyleSheet.flatten(styles.headerText)}>Settings</H3>
-        : <H3 style={StyleSheet.flatten(styles.headerText)}>Challenges</H3>}
+      <H3 style={StyleSheet.flatten(styles.headerText)}>
+        {location}
+      </H3>
       {/* // <Image
         //     style={{
         //       height: 50,
@@ -27,7 +27,7 @@ const TopBar = ({ location }) =>
 
 const styles = StyleSheet.create({
   topRowContainer: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     flexDirection: "row",
     height: 40,
     position: "absolute",
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontWeight: "bold",
     // fontStyle: "italic",
-    color: colors.secondaryText
+    color: colors.primaryText
   },
   icon: {
     color: colors.secondaryText

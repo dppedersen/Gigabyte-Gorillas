@@ -10,6 +10,8 @@ import SettingsOld from "./SettingsContainerOld";
 import Landing from "./LandingContainer";
 import Settings from "./SettingsContainer";
 import Challenges from "./ChallengesListContainer";
+import Friends from "./FriendsContainer";
+import Notifications from "./NotificationsContainer";
 import { Icon } from "native-base";
 
 const ReduxRouter = connect()(Router);
@@ -26,14 +28,28 @@ class AppRouter extends Component {
         <Scene key="root">
           <Scene key="landing" component={Landing} hideNavBar={true} title="Landing" passProps={true} initial={true} />
           <Scene key="auth" component={Auth} hideNavBar={true} title="Signup" passProps={true} />
-          <Scene key="settings" component={Settings} title="Settings Page" hideNavBar={true} passProps={true} />
-
+          <Scene
+            key="settings"
+            component={Settings}
+            title="Settings"
+            hideNavBar={true}
+            panHandlers={null}
+            passProps={true}
+          />
+          <Scene
+            key="friends"
+            component={Friends}
+            title="Friends"
+            hideNavBar={true}
+            panHandlers={null}
+            passProps={true}
+          />
           <Scene
             key="camera"
             component={Camera}
             hideNavBar={true}
             panHandlers={null}
-            title="Capture Your Habit"
+            title="Camera"
             passProps={true}
             animation="none"
           />
@@ -43,6 +59,14 @@ class AppRouter extends Component {
             hideNavBar={true}
             panHandlers={null}
             title="Challenges"
+            passProps={true}
+          />
+          <Scene
+            key="notifications"
+            component={Notifications}
+            hideNavBar={true}
+            panHandlers={null}
+            title="Notifications"
             passProps={true}
           />
         </Scene>

@@ -59,7 +59,7 @@ import BottomBar from "./BottomBar.js";
 
 const SettingsView = ({ username, firstName, lastName, phoneNumber }) =>
   <View style={styles.container}>
-    <TopBar location={"settings"} />
+    <TopBar location="Settings" />
     <View style={styles.userContainer}>
       <Image source={require("./../Assets/dp.jpg")} style={styles.profileImage} />
       <View style={{ flexDirection: "column", paddingLeft: 5 }}>

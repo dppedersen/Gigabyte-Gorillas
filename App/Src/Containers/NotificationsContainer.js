@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Modal from "react-native-modal";
 import { ActionCreators } from "./../Actions/ActionCreators";
-import FriendsView from "./../Components/FriendsView.js";
+import NotificationsView from "./../Components/NotificationsView.js";
 
-class FriendsContainer extends Component {
+class NotificationsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   render() {
-    return <FriendsView />;
+    return <NotificationsView />;
   }
 }
 
@@ -29,4 +29,4 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(ActionCreators, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(NotificationsContainer);

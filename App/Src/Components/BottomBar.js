@@ -17,13 +17,13 @@ const BottomBar = () =>
     <Button
       transparent
       onPress={() => {
-        Actions.settings();
+        Actions.friends();
       }}
     >
       <Icon style={StyleSheet.flatten(styles.icon)} name={"person-add" || "people"} />
     </Button>
     <Button transparent onPress={() => Actions.camera()}>
-      <Icon style={StyleSheet.flatten(styles.icon)} name="radio-button-on" />
+      <Icon style={StyleSheet.flatten(styles.icon)} name="radio-button-off" />
     </Button>
     <Button
       transparent
@@ -36,7 +36,7 @@ const BottomBar = () =>
     <Button
       transparent
       onPress={() => {
-        Actions.challenges();
+        Actions.notifications();
       }}
     >
       <Icon style={StyleSheet.flatten(styles.icon)} name="heart" />
