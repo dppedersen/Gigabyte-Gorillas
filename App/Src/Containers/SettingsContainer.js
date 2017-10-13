@@ -7,8 +7,6 @@ import Modal from "react-native-modal";
 import { Actions } from "react-native-router-flux";
 import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures";
 import { ActionCreators } from "./../Actions/ActionCreators";
-import Friend from "./../Components/FriendsListItem";
-import UserView from "./../Components/UserView";
 import Camera from "./CameraContainer";
 import Swiper from "react-native-swiper";
 import colors from "./../ColorPalette";

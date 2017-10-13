@@ -35,6 +35,7 @@ class AppRouter extends Component {
             hideNavBar={true}
             panHandlers={null}
             passProps={true}
+            duration={0}
           />
           <Scene
             key="friends"
@@ -43,6 +44,7 @@ class AppRouter extends Component {
             hideNavBar={true}
             panHandlers={null}
             passProps={true}
+            duration={0}
           />
           <Scene
             key="camera"
@@ -51,7 +53,7 @@ class AppRouter extends Component {
             panHandlers={null}
             title="Camera"
             passProps={true}
-            animation="none"
+            duration={0}
           />
           <Scene
             key="challenges"
@@ -60,6 +62,7 @@ class AppRouter extends Component {
             panHandlers={null}
             title="Challenges"
             passProps={true}
+            duration={0}
           />
           <Scene
             key="notifications"
@@ -68,6 +71,7 @@ class AppRouter extends Component {
             panHandlers={null}
             title="Notifications"
             passProps={true}
+            duration={0}
           />
         </Scene>
       </ReduxRouter>

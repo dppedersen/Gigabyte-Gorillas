@@ -32,6 +32,7 @@ import colors from "./../ColorPalette.js";
 import { Actions } from "react-native-router-flux";
 import TopBar from "./TopBar.js";
 import BottomBar from "./BottomBar.js";
+import Friend from "./Friend.js";
 
 const FriendsView = () =>
   <Container style={{ flex: 1 }}>
@@ -57,6 +58,7 @@ const FriendsView = () =>
               }}
             />
           </View>
+          <Friend />
         </ScrollView>
       </Tab>
       <Tab
@@ -67,16 +69,19 @@ const FriendsView = () =>
           </TabHeading>
         }
       >
-        <View style={styles.friendSearchFormContainer}>
-          <TextInput
-            style={styles.textInput}
-            placeholder="Search"
-            // value={this.state.searchFriendsText}
-            onChangeText={text => {
-              // this._setSearchFriendsText(text);
-            }}
-          />
-        </View>
+        <ScrollView>
+          <View style={styles.friendSearchFormContainer}>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Search"
+              // value={this.state.searchFriendsText}
+              onChangeText={text => {
+                // this._setSearchFriendsText(text);
+              }}
+            />
+          </View>
+          <Friend />
+        </ScrollView>
       </Tab>
       <Tab
         style={{ backgroundColor: colors.background }}
@@ -86,16 +91,19 @@ const FriendsView = () =>
           </TabHeading>
         }
       >
-        <View style={styles.friendSearchFormContainer}>
-          <TextInput
-            style={styles.textInput}
-            placeholder="Search"
-            // value={this.state.searchFriendsText}
-            onChangeText={text => {
-              // this._setSearchFriendsText(text);
-            }}
-          />
-        </View>
+        <ScrollView>
+          <View style={styles.friendSearchFormContainer}>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Search"
+              // value={this.state.searchFriendsText}
+              onChangeText={text => {
+                // this._setSearchFriendsText(text);
+              }}
+            />
+          </View>
+          <Friend />
+        </ScrollView>
       </Tab>
     </Tabs>
     <BottomBar />

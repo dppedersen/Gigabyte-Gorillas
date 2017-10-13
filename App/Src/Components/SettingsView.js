@@ -67,11 +67,12 @@ const SettingsView = ({ username, firstName, lastName, phoneNumber }) =>
         <Text style={styles.editPhotoText}>Edit profile photo</Text>
       </View>
     </View>
+
     <View style={styles.firstNameContainer}>
       <Text style={styles.firstNameText}>First Name:</Text>
       <View style={styles.formContainer}>
         <Form>
-          <Item rounded style={StyleSheet.flatten(styles.formItem)}>
+          <Item style={StyleSheet.flatten(styles.formItem)}>
             <Input
               value={"Duncan"}
               onChangeText={text => {
@@ -86,7 +87,7 @@ const SettingsView = ({ username, firstName, lastName, phoneNumber }) =>
       <Text style={styles.lastNameText}>Last Name:</Text>
       <View style={styles.formContainer}>
         <Form>
-          <Item rounded style={StyleSheet.flatten(styles.formItem)}>
+          <Item style={StyleSheet.flatten(styles.formItem)}>
             <Input
               value={"Pedersen"}
               onChangeText={text => {
@@ -101,7 +102,7 @@ const SettingsView = ({ username, firstName, lastName, phoneNumber }) =>
       <Text style={styles.emailText}>E-mail:</Text>
       <View style={styles.formContainer}>
         <Form>
-          <Item rounded style={StyleSheet.flatten(styles.formItem)}>
+          <Item style={StyleSheet.flatten(styles.formItem)}>
             <Input
               value={"pedersen.duncan@gmail.com"}
               onChangeText={text => {
@@ -116,7 +117,7 @@ const SettingsView = ({ username, firstName, lastName, phoneNumber }) =>
       <Text style={styles.phoneNumberText}>Phone Number:</Text>
       <View style={styles.formContainer}>
         <Form>
-          <Item rounded style={StyleSheet.flatten(styles.formItem)}>
+          <Item style={StyleSheet.flatten(styles.formItem)}>
             <Input
               value={"8608038095"}
               onChangeText={text => {
@@ -132,7 +133,7 @@ const SettingsView = ({ username, firstName, lastName, phoneNumber }) =>
       <Switch />
     </View>
     <View style={styles.saveChangesContainer}>
-      <Button rounded success>
+      <Button primary>
         <Text style={styles.buttonText}>Save Changes</Text>
       </Button>
     </View>
@@ -147,7 +148,7 @@ const SettingsView = ({ username, firstName, lastName, phoneNumber }) =>
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "beige",
+    backgroundColor: colors.secondaryLight,
     justifyContent: "flex-start",
     alignItems: "center"
   },
@@ -156,21 +157,30 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 60
+    backgroundColor: colors.secondary,
+    marginTop: 40,
+    padding: 10
   },
   profileImage: {
-    height: 60,
-    width: 60,
-    borderRadius: 30
-  },
-  usernameText: {
-    fontWeight: "bold",
-    fontSize: 20,
-    color: colors.secondaryText
+    height: 40,
+    width: 40,
+    borderRadius: 20
   },
   editPhotoText: {
     fontStyle: "italic",
     fontSize: 10
+  },
+  usernameText: {
+    fontWeight: "bold",
+    color: colors.secondaryText
+  },
+  usernameContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    margin: 20,
+    marginTop: 80,
+    marginBottom: 0
   },
   firstNameContainer: {
     flexDirection: "row",
@@ -210,10 +220,14 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-between",
+    marginLeft: 20,
+    marginRight: 20
   },
   saveChangesContainer: {
-    margin: 20
+    marginTop: 30,
+    margin: 20,
+    marginBottom: 45
   },
   buttonText: {
     color: "white"
