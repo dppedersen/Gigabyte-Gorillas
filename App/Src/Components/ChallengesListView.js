@@ -5,13 +5,14 @@ import colors from "./../ColorPalette.js";
 import BottomBar from "./BottomBar.js";
 import TopBar from "./TopBar.js";
 import NewLiftOffButton from "./NewLiftOffButton";
+import VsCard from "./VsCard.js";
 
 const ChallengesListView = ({ viewChallenge, addChallenge }) =>
   <View style={styles.container}>
     <TopBar location="Challenges" />
-    <Card style={StyleSheet.flatten(styles.card)}>
-      <Text>Test</Text>
-    </Card>
+    <View style={styles.challengesContainer}>
+      <VsCard />
+    </View>
     <View style={styles.startButtonContainer}>
       <NewLiftOffButton style={styles.startButton} textStyle={styles.startButtonText} />
     </View>
@@ -23,14 +24,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.secondaryDark,
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "flex-start"
   },
-  card: {
-    flex: 0,
-    justifyContent: "center",
-    alignItems: "center",
-    height: 50,
-    width: "96%"
+  challengesContainer: {
+    width: "96%",
+    marginTop: 45
   },
   startButtonContainer: {
     alignSelf: "stretch"

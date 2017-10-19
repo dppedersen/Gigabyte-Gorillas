@@ -162,9 +162,9 @@ const styles = StyleSheet.create({
     padding: 10
   },
   profileImage: {
-    height: 40,
-    width: 40,
-    borderRadius: 20
+    height: 50,
+    width: 50,
+    borderRadius: 25
   },
   editPhotoText: {
     fontStyle: "italic",
@@ -172,6 +172,7 @@ const styles = StyleSheet.create({
   },
   usernameText: {
     fontWeight: "bold",
+    fontSize: 15,
     color: colors.secondaryText
   },
   usernameContainer: {
