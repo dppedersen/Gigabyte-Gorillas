@@ -158,8 +158,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     backgroundColor: colors.secondary,
-    marginTop: 40,
-    padding: 10
+    marginTop: 50,
+    padding: 5
   },
   profileImage: {
     height: 50,

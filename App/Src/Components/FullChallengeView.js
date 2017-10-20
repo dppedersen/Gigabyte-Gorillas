@@ -14,13 +14,22 @@ const photoWidth = (width - 4 * 5) / 3;
 const FullChallengeView = () =>
   <View style={styles.container}>
     <TopBar location="Challenge" />
-
-    <Tabs style={{ marginTop: 40 }} tabBarUnderlineStyle={{ backgroundColor: colors.primaryDark }}>
+    <View style={styles.usersContainer}>
+      <View style={styles.userContainer}>
+        <Image source={require("./../Assets/dp.jpg")} style={styles.userImage} />
+        <Text style={styles.usernameText}>dppedersen</Text>
+      </View>
+      <View style={styles.userContainer}>
+        <Image source={require("./../Assets/nf.jpg")} style={styles.userImage} />
+        <Text style={styles.usernameText}>natemar</Text>
+      </View>
+    </View>
+    <Tabs style={StyleSheet.flatten(styles.tabs)} tabBarUnderlineStyle={{ backgroundColor: colors.primaryDark }}>
       <Tab
         style={{ backgroundColor: colors.background }}
         heading={
-          <TabHeading style={{ padding: 10, backgroundColor: colors.secondary }}>
-            <Text style={{ color: colors.secondaryText }}>All Users</Text>
+          <TabHeading style={StyleSheet.flatten(styles.tabHeading)}>
+            <Text style={{ color: colors.secondaryText }}>Statistics</Text>
           </TabHeading>
         }
       >
@@ -41,28 +50,7 @@ const FullChallengeView = () =>
         style={{ backgroundColor: colors.background }}
         heading={
           <TabHeading style={{ backgroundColor: colors.secondary }}>
-            <Text style={{ color: colors.secondaryText }}>My Contacts</Text>
-          </TabHeading>
-        }
-      >
-        <ScrollView>
-          <View style={styles.friendSearchFormContainer}>
-            <TextInput
-              style={styles.textInput}
-              placeholder="Search"
-              // value={this.state.searchFriendsText}
-              onChangeText={text => {
-                // this._setSearchFriendsText(text);
-              }}
-            />
-          </View>
-        </ScrollView>
-      </Tab>
-      <Tab
-        style={{ backgroundColor: colors.background }}
-        heading={
-          <TabHeading style={{ backgroundColor: colors.secondary }}>
-            <Text style={{ color: colors.secondaryText }}>Added Me</Text>
+            <Text style={{ color: colors.secondaryText }}>Photos</Text>
           </TabHeading>
         }
       >
@@ -89,42 +77,33 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     flex: 1
   },
-
-  scrollView: {
-    alignItems: "center",
-    margin: 40,
-    flex: 1
-  },
-  vsLine: {
-    alignSelf: "stretch",
+  usersContainer: {
+    marginTop: 50,
     flexDirection: "row",
-    justifyContent: "center"
+    alignSelf: "stretch",
+    justifyContent: "space-around",
+    backgroundColor: colors.secondaryDark,
+    padding: 15
   },
   userContainer: {
-    alignItems: "center",
-    margin: 10
+    alignItems: "center"
   },
-  profileImage: {
-    height: 50,
-    width: 50,
-    borderRadius: 25
+  userImage: {
+    height: 60,
+    width: 60,
+    borderRadius: 30
   },
   usernameText: {
-    fontWeight: "bold",
-    margin: 5
+    fontSize: 20,
+    color: "white",
+    fontWeight: "bold"
   },
-  vsTextContainer: {
-    justifyContent: "center"
+  tabs: {
+    // marginTop: 50
   },
-  vsText: {
-    fontStyle: "italic"
-  },
-  daysLiftedContainer: {
-    backgroundColor: colors.secondaryDark,
-    alignSelf: "stretch",
-    alignItems: "center",
-    marginTop: 15,
-    marginBottom: 15
+  tabHeading: {
+    padding: 10,
+    backgroundColor: colors.secondary
   },
   chart: {
     flex: -1,

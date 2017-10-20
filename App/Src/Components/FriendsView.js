@@ -38,7 +38,7 @@ const FriendsView = () =>
   <Container style={{ flex: 1 }}>
     <TopBar location="Add Friends" />
 
-    <Tabs style={{ marginTop: 40 }} tabBarUnderlineStyle={{ backgroundColor: colors.primaryDark }}>
+    <Tabs style={{ marginTop: 50 }} tabBarUnderlineStyle={{ backgroundColor: colors.primaryDark }}>
       <Tab
         style={{ backgroundColor: colors.background }}
         heading={

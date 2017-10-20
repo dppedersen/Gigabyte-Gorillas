@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   challengesContainer: {
     width: "96%",
-    marginTop: 45
+    marginTop: 55
   },
   startButtonContainer: {
     alignSelf: "stretch"

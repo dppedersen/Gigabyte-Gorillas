@@ -47,18 +47,18 @@ const styles = StyleSheet.create({
   topRowContainer: {
     backgroundColor: colors.primary,
     flexDirection: "row",
-    height: 40,
+    height: 50,
     position: "absolute",
     left: 0,
     right: 0,
-    top: 0
+    top: 0,
+    paddingTop: 15
   },
   headerContainer: {
     alignSelf: "center"
   },
   headerText: {
     fontWeight: "bold",
-    fontStyle: "italic",
     color: colors.primaryText
   },
   icon: {
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   backButton: {
-    top: 5,
+    top: 0,
     left: 10
   },
   rightButtonContainer: {
