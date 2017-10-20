@@ -16,7 +16,7 @@ const ChallengesListView = ({ viewChallenge, addChallenge }) =>
     <View style={styles.startButtonContainer}>
       <NewLiftOffButton style={styles.startButton} textStyle={styles.startButtonText} />
     </View>
-    <BottomBar />
+    <BottomBar challenges={{ color: colors.primaryDark }} />
   </View>;
 
 const styles = StyleSheet.create({

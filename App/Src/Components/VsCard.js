@@ -10,6 +10,7 @@ import {
   Dimensions,
   TouchableOpacity
 } from "react-native";
+import { Actions } from "react-native-router-flux";
 import { Button, Card, Form, Item, Input, H1, H2, CardItem, Body, Icon } from "native-base";
 import colors from "./../ColorPalette.js";
 
@@ -19,7 +20,7 @@ const VsCard = () =>
       <Text style={styles.vsText}>vs. Mitt</Text>
       <Text style={styles.statusText}>Winning 50 to 40</Text>
     </View>
-    <TouchableOpacity style={styles.buttonContainer}>
+    <TouchableOpacity style={styles.buttonContainer} onPress={() => Actions.challenge()}>
       <Text style={styles.detailsText}>DETAILS</Text>
       <Icon name="arrow-forward" style={StyleSheet.flatten(styles.arrowIcon)} />
     </TouchableOpacity>

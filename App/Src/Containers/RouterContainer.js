@@ -12,6 +12,7 @@ import Settings from "./SettingsContainer";
 import Challenges from "./ChallengesListContainer";
 import Friends from "./FriendsContainer";
 import Notifications from "./NotificationsContainer";
+import Challenge from "./FullChallengeContainer";
 import { Icon } from "native-base";
 
 const ReduxRouter = connect()(Router);
@@ -61,6 +62,15 @@ class AppRouter extends Component {
             hideNavBar={true}
             panHandlers={null}
             title="Challenges"
+            passProps={true}
+            duration={0}
+          />
+          <Scene
+            key="challenge"
+            component={Challenge}
+            hideNavBar={true}
+            panHandlers={null}
+            title="Challenge"
             passProps={true}
             duration={0}
           />

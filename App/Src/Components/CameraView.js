@@ -23,7 +23,7 @@ const CameraView = ({ takePicture }) =>
       style={styles.preview}
       aspect={Camera.constants.Aspect.fill}
     >
-      <BottomBar />
+      <BottomBar camera={{ color: colors.primaryDark }} />
     </Camera>
   </View>;
 

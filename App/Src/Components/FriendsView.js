@@ -106,7 +106,7 @@ const FriendsView = () =>
         </ScrollView>
       </Tab>
     </Tabs>
-    <BottomBar />
+    <BottomBar friends={{ color: colors.primaryDark }} />
   </Container>;
 
 const styles = StyleSheet.create({

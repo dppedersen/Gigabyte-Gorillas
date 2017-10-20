@@ -5,8 +5,9 @@ import colors from "./../ColorPalette.js";
 import { Actions } from "react-native-router-flux";
 
 const NewLiftOffButton = ({ style, textStyle, openNewLiftOffModal }) =>
-  <Button light block onPress={() => Actions.newLiftOff()} style={StyleSheet.flatten(style)}>
-    <Icon large name="pulse" />
+  <Button light block style={StyleSheet.flatten(style)}>
+    {/* <Icon large name="pulse" /> */}
+    <Text>NEW CHALLENGE</Text>
   </Button>;
 
 export default NewLiftOffButton;

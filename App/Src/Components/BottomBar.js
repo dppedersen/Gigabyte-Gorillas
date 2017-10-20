@@ -4,7 +4,7 @@ import { Button, Card, Form, Item, Input, H1, H2, CardItem, Body, Icon } from "n
 import colors from "./../ColorPalette.js";
 import { Actions } from "react-native-router-flux";
 
-const BottomBar = () =>
+const BottomBar = ({ settings, friends, camera, challenges, notifications }) =>
   <View style={styles.bottomBar}>
     <Button
       transparent
@@ -12,7 +12,7 @@ const BottomBar = () =>
         Actions.settings();
       }}
     >
-      <Icon style={StyleSheet.flatten(styles.icon)} name="settings" />
+      <Icon style={settings || StyleSheet.flatten(styles.icon)} name="settings" />
     </Button>
     <Button
       transparent
@@ -20,10 +20,10 @@ const BottomBar = () =>
         Actions.friends();
       }}
     >
-      <Icon style={StyleSheet.flatten(styles.icon)} name={"person-add" || "people"} />
+      <Icon style={friends || StyleSheet.flatten(styles.icon)} name={"person-add" || "people"} />
     </Button>
     <Button transparent onPress={() => Actions.camera()}>
-      <Icon style={StyleSheet.flatten(styles.icon)} name="radio-button-off" />
+      <Icon style={camera || StyleSheet.flatten(styles.icon)} name={camera ? "radio-button-on" : "radio-button-off"} />
     </Button>
     <Button
       transparent
@@ -31,7 +31,7 @@ const BottomBar = () =>
         Actions.challenges();
       }}
     >
-      <Icon style={StyleSheet.flatten(styles.icon)} name="pulse" />
+      <Icon style={challenges || StyleSheet.flatten(styles.icon)} name="pulse" />
     </Button>
     <Button
       transparent
@@ -39,7 +39,7 @@ const BottomBar = () =>
         Actions.notifications();
       }}
     >
-      <Icon style={StyleSheet.flatten(styles.icon)} name="heart" />
+      <Icon style={notifications || StyleSheet.flatten(styles.icon)} name="heart" />
     </Button>
   </View>;
 
@@ -58,6 +58,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     padding: 0
+  },
+  icon: {
+    color: colors.primaryLight
   }
 });
 

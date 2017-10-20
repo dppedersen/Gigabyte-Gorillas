@@ -69,22 +69,7 @@ class CameraContainer extends Component {
       directionalOffsetThreshold: 80
     };
 
-    return (
-      <View style={{ flex: 1 }}>
-        <StatusBar hidden={true} />
-        <Camera
-          ref={cam => {
-            this.camera = cam;
-          }}
-          captureTarget={Camera.constants.CaptureTarget.memory}
-          captureQuality="medium"
-          style={styles.preview}
-          aspect={Camera.constants.Aspect.fill}
-        >
-          <BottomBar />
-        </Camera>
-      </View>
-    );
+    return <CameraView />;
   }
 
   takePicture(d, h) {

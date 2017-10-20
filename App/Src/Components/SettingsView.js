@@ -142,13 +142,13 @@ const SettingsView = ({ username, firstName, lastName, phoneNumber }) =>
         <Text style={styles.accountSettingsText}>Account Settings</Text>
       </TouchableOpacity>
     </View>
-    <BottomBar />
+    <BottomBar settings={{ color: colors.primaryDark }} />
   </View>;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.secondaryLight,
+    // backgroundColor: colors.secondaryLight,
     justifyContent: "flex-start",
     alignItems: "center"
   },

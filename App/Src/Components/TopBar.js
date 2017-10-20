@@ -1,26 +1,44 @@
 import React, { Component } from "react";
-import { Alert, ScrollView, Text, TextInput, View, StyleSheet, Image, Dimensions } from "react-native";
+import {
+  TouchableOpacity,
+  Alert,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+  StyleSheet,
+  Image,
+  Dimensions
+} from "react-native";
 import { Button, Card, Form, Item, Input, H1, H2, H3, CardItem, Body, Icon } from "native-base";
 import colors from "./../ColorPalette.js";
 import { Actions } from "react-native-router-flux";
 
 const TopBar = ({ location }) =>
   <View style={styles.topRowContainer}>
-    <View style={styles.leftButtonContainer} />
+    <View style={styles.leftButtonContainer}>
+      {location === "Challenge"
+        ? <TouchableOpacity style={styles.backButton} onPress={() => Actions.challenges()}>
+            <Icon name="arrow-back" style={StyleSheet.flatten(styles.icon)} />
+          </TouchableOpacity>
+        : null}
+    </View>
     <View style={styles.headerContainer}>
       <H3 style={StyleSheet.flatten(styles.headerText)}>
-        {location}
+        {location === "Challenge" ? null : location}
       </H3>
-      {/* // <Image
-        //     style={{
-        //       height: 50,
-        //       width: 135,
-        //       marginTop: -10,
-        //       marginBottom: 3,
-        //       resizeMode: "contain"
-        //     }}
-        //     source={require("./../Assets/liftoff_bauhaus_transp.png")}
-        //   />} */}
+      {location === "Challenge"
+        ? <Image
+            style={{
+              height: 50,
+              width: 135,
+              marginTop: -25,
+              marginBottom: 3,
+              resizeMode: "contain"
+            }}
+            source={require("./../Assets/liftoff_bauhaus_transp.png")}
+          />
+        : null}
     </View>
     <View style={styles.rightButtonContainer} />
   </View>;
@@ -40,14 +58,18 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontWeight: "bold",
-    // fontStyle: "italic",
+    fontStyle: "italic",
     color: colors.primaryText
   },
   icon: {
-    color: colors.secondaryText
+    color: colors.primaryText
   },
   leftButtonContainer: {
     flex: 1
+  },
+  backButton: {
+    top: 5,
+    left: 10
   },
   rightButtonContainer: {
     flex: 1

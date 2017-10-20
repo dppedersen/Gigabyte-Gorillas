@@ -9,7 +9,7 @@ const NotificationsView = () =>
   <View style={{ flex: 1 }}>
     <TopBar location="Notifications" />
     <View />
-    <BottomBar />
+    <BottomBar notifications={{ color: colors.primaryDark }} />
   </View>;
 
 export default NotificationsView;
