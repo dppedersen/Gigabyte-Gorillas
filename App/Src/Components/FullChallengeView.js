@@ -19,6 +19,7 @@ const FullChallengeView = () =>
         <Image source={require("./../Assets/dp.jpg")} style={styles.userImage} />
         <Text style={styles.usernameText}>dppedersen</Text>
       </View>
+      <Text>vs.</Text>
       <View style={styles.userContainer}>
         <Image source={require("./../Assets/nf.jpg")} style={styles.userImage} />
         <Text style={styles.usernameText}>natemar</Text>
@@ -68,19 +69,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignSelf: "stretch",
     justifyContent: "space-around",
-    backgroundColor: "lightgray",
-    padding: 15
+    backgroundColor: colors.secondaryDark,
+    padding: 5,
+    alignItems: "center"
   },
   userContainer: {
     alignItems: "center"
   },
   userImage: {
-    height: 60,
-    width: 60,
-    borderRadius: 30
+    height: 50,
+    width: 50,
+    borderRadius: 25
   },
   usernameText: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: "bold"
   },
   tabs: {
