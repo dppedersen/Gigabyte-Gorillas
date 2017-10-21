@@ -35,14 +35,7 @@ const FullChallengeView = () =>
       >
         <ScrollView>
           <View style={styles.friendSearchFormContainer}>
-            <TextInput
-              style={styles.textInput}
-              placeholder="Search"
-              // value={this.state.searchFriendsText}
-              onChangeText={text => {
-                // this._setSearchFriendsText(text);
-              }}
-            />
+            <ChallengeChart />
           </View>
         </ScrollView>
       </Tab>
@@ -56,14 +49,7 @@ const FullChallengeView = () =>
       >
         <ScrollView>
           <View style={styles.friendSearchFormContainer}>
-            <TextInput
-              style={styles.textInput}
-              placeholder="Search"
-              // value={this.state.searchFriendsText}
-              onChangeText={text => {
-                // this._setSearchFriendsText(text);
-              }}
-            />
+            <PhotoMap containerStyle={styles.photoMapContainerStyle} imageStyle={styles.photoMapImageStyle} />
           </View>
         </ScrollView>
       </Tab>
@@ -82,7 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignSelf: "stretch",
     justifyContent: "space-around",
-    backgroundColor: colors.secondaryDark,
+    backgroundColor: "lightgray",
     padding: 15
   },
   userContainer: {
@@ -94,8 +80,7 @@ const styles = StyleSheet.create({
     borderRadius: 30
   },
   usernameText: {
-    fontSize: 20,
-    color: "white",
+    fontSize: 15,
     fontWeight: "bold"
   },
   tabs: {

@@ -37,12 +37,19 @@ export default class ChallengeChart extends Component {
               data: { stroke: "#c43a31" },
               parent: { border: "1px solid #ccc" }
             }}
-            height={200}
+            height={100}
             width={350}
             data={[{ x: 1, y: 2 }, { x: 2, y: 3 }, { x: 3, y: 5 }, { x: 4, y: 4 }, { x: 5, y: 7 }]}
           />
-          <VictoryAxis />
-          <VictoryAxis dependentAxis />
+          <VictoryLine
+            style={{
+              data: { stroke: "#c43a31" },
+              parent: { border: "1px solid #ccc" }
+            }}
+            height={100}
+            width={350}
+            data={[{ x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 }, { x: 4, y: 2 }, { x: 5, y: 3 }]}
+          />
         </VictoryChart>
       </View>
     );

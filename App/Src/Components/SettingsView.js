@@ -148,7 +148,7 @@ const SettingsView = ({ username, firstName, lastName, phoneNumber }) =>
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: colors.secondaryLight,
+    backgroundColor: colors.secondary,
     justifyContent: "flex-start",
     alignItems: "center"
   },
@@ -158,13 +158,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     backgroundColor: colors.secondary,
-    marginTop: 50,
+    marginTop: 60,
     padding: 5
   },
   profileImage: {
-    height: 50,
-    width: 50,
-    borderRadius: 25
+    height: 60,
+    width: 60,
+    borderRadius: 30
   },
   editPhotoText: {
     fontStyle: "italic",
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   saveChangesContainer: {
     marginTop: 30,
     margin: 20,
-    marginBottom: 45
+    marginBottom: 35
   },
   buttonText: {
     color: "white"

@@ -25,9 +25,9 @@ const TopBar = ({ location }) =>
     </View>
     <View style={styles.headerContainer}>
       <H3 style={StyleSheet.flatten(styles.headerText)}>
-        {location === "Challenge" ? null : location}
+        {location === "Challenge" ? "Challenge" : location}
       </H3>
-      {location === "Challenge"
+      {/* {location === "Challenge"
         ? <Image
             style={{
               height: 50,
@@ -38,7 +38,7 @@ const TopBar = ({ location }) =>
             }}
             source={require("./../Assets/liftoff_bauhaus_transp.png")}
           />
-        : null}
+        : null} */}
     </View>
     <View style={styles.rightButtonContainer} />
   </View>;
